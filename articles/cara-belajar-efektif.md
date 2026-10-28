@@ -1,5 +1,6 @@
 
 ---
+layout: "layouts/article.njk"
 title: "Cara Belajar yang Lebih Efektif"
 category: "Pendidikan"
 date: 2026-10-28
