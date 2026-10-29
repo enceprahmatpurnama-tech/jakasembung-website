@@ -1,3 +1,4 @@
+
 ---
 layout: "layouts/article.njk"
 title: "Cara Belajar yang Lebih Efektif"
@@ -7,8 +8,6 @@ updated: 2026-10-28
 summary: "Panduan dasar untuk membangun kebiasaan belajar yang lebih teratur, fokus, dan efektif."
 permalink: "/articles/cara-belajar-efektif/index.html"
 ---
-
-# Cara Belajar yang Lebih Efektif
 
 Belajar secara efektif bukan hanya tentang berapa lama waktu yang kita habiskan, tetapi juga tentang bagaimana kita memahami dan mengingat materi.
 
