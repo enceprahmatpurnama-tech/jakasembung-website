@@ -1,0 +1,8 @@
+# Dependencies
+node_modules/
+
+# Generated website
+_site/
+
+# Editor settings
+.vscode/
