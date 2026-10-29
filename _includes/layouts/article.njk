@@ -135,13 +135,13 @@
       <p class="category">{{ category }}</p>
 
       <h1 class="article-title">{{ title }}</h1>
-
+      
       <div class="metadata">
-        Terbit: {{ date }}
+        Terbit: {{ date | dateFormat }}
         {% if updated %}
-          | Diperbarui: {{ updated }}
+          | Diperbarui: {{ updated | dateFormat }}
         {% endif %}
-      </div>
+      </div
 
       {{ content | safe }}
     </article>
