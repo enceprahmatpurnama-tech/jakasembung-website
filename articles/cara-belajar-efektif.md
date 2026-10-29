@@ -1,4 +1,3 @@
-
 ---
 layout: "layouts/article.njk"
 title: "Cara Belajar yang Lebih Efektif"
