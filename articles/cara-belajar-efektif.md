@@ -5,7 +5,7 @@ category: "Pendidikan"
 date: 2026-10-28
 updated: 2026-10-28
 summary: "Panduan dasar untuk membangun kebiasaan belajar yang lebih teratur, fokus, dan efektif."
-permalink: "/cara-belajar-efektif/index.html"
+permalink: "/articles/cara-belajar-efektif/index.html"
 ---
 
 # Cara Belajar yang Lebih Efektif
