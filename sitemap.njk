@@ -1,0 +1,20 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ (site.url + '/') | escape }}</loc>
+  </url>
+  {% for article in collections.articles %}
+  <url>
+    <loc>{{ (site.url + article.url) | escape }}</loc>
+  </url>
+  {% endfor %}
+  {% for category in collections.articleCategories %}
+  <url>
+    <loc>{{ (site.url + '/' + (category.name | slugify) + '/') | escape }}</loc>
+  </url>
+  {% endfor %}
+</urlset>

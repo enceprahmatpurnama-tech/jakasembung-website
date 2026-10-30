@@ -4,8 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jakasembung — Pusat Pendidikan dan Pengetahuan. Temukan artikel pendidikan, tutorial, pengetahuan umum, tips, dan panduan.">
-    <title>Jakasembung — Pusat Pendidikan dan Pengetahuan</title>
+    <meta name="description" content="{{ (site.siteName + ' — ' + site.tagline + '. Temukan artikel pendidikan, tutorial, pengetahuan umum, tips, dan panduan.') | escape }}">
+    <title>{{ (site.siteName + ' — ' + site.tagline) | escape }}</title>
+    <link rel="canonical" href="{{ (site.url + page.url) | escape }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ (site.siteName + ' — ' + site.tagline) | escape }}">
+    <meta property="og:description" content="{{ (site.siteName + ' — ' + site.tagline + '. Temukan artikel pendidikan, tutorial, pengetahuan umum, tips, dan panduan.') | escape }}">
+    <meta property="og:url" content="{{ (site.url + page.url) | escape }}">
+    <meta property="og:site_name" content="{{ site.siteName | escape }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ (site.siteName + ' — ' + site.tagline) | escape }}">
+    <meta name="twitter:description" content="{{ (site.siteName + ' — ' + site.tagline + '. Temukan artikel pendidikan, tutorial, pengetahuan umum, tips, dan panduan.') | escape }}">
 
     <style>
         * {
@@ -180,8 +189,8 @@
 <body>
     <header>
         <div class="header-inner">
-            <p class="brand">Jakasembung</p>
-            <p class="tagline">Pusat Pendidikan dan Pengetahuan</p>
+            <p class="brand">{{ site.siteName }}</p>
+            <p class="tagline">{{ site.tagline }}</p>
 
             <nav>
                 <a href="/">Beranda</a>
@@ -191,7 +200,7 @@
 
     <main>
         <section class="intro">
-            <h1>Selamat Datang di Jakasembung</h1>
+            <h1>Selamat Datang di {{ site.siteName }}</h1>
             <p>
                 Temukan artikel pendidikan, tutorial, pengetahuan umum,
                 serta tips dan panduan yang bermanfaat untuk menambah
@@ -217,7 +226,7 @@
     </main>
 
     <footer>
-        <p>© Jakasembung — Pusat Pendidikan dan Pengetahuan</p>
+        <p>© {{ site.siteName }} — {{ site.tagline }}</p>
     </footer>
 </body>
 </html>

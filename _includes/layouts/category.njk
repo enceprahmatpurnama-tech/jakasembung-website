@@ -3,8 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="{{ categoryDescriptions[category.name] or 'Kumpulan artikel kategori ' + category.name + ' di Jakasembung.' }}">
-  <title>{{ category.name }} | Jakasembung</title>
+  <meta name="description" content="{{ (categoryDescriptions[category.name] or 'Kumpulan artikel kategori ' + category.name + ' di ' + site.siteName + '.') | escape }}">
+  <title>{{ (category.name + ' | ' + site.siteName) | escape }}</title>
+  <link rel="canonical" href="{{ (site.url + page.url) | escape }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ (category.name + ' | ' + site.siteName) | escape }}">
+  <meta property="og:description" content="{{ (categoryDescriptions[category.name] or 'Kumpulan artikel kategori ' + category.name + ' di ' + site.siteName + '.') | escape }}">
+  <meta property="og:url" content="{{ (site.url + page.url) | escape }}">
+  <meta property="og:site_name" content="{{ site.siteName | escape }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ (category.name + ' | ' + site.siteName) | escape }}">
+  <meta name="twitter:description" content="{{ (categoryDescriptions[category.name] or 'Kumpulan artikel kategori ' + category.name + ' di ' + site.siteName + '.') | escape }}">
 
   <style>
     * {
@@ -168,8 +177,8 @@
 <body>
   <header>
     <div class="header-inner">
-      <p class="brand">Jakasembung</p>
-      <p class="tagline">Pusat Pendidikan dan Pengetahuan</p>
+      <p class="brand">{{ site.siteName }}</p>
+      <p class="tagline">{{ site.tagline }}</p>
 
       <nav>
         <a href="/">Beranda</a>
@@ -180,7 +189,7 @@
   <main>
     <section class="category-intro">
       <h1>{{ category.name }}</h1>
-      <p>{{ categoryDescriptions[category.name] or 'Kumpulan artikel kategori ' + category.name + ' di Jakasembung.' }}</p>
+      <p>{{ categoryDescriptions[category.name] or 'Kumpulan artikel kategori ' + category.name + ' di ' + site.siteName + '.' }}</p>
     </section>
 
     <section class="article-grid" aria-label="Daftar artikel">
@@ -196,7 +205,7 @@
   </main>
 
   <footer>
-    <p>© Jakasembung — Pusat Pendidikan dan Pengetahuan</p>
+    <p>© {{ site.siteName }} — {{ site.tagline }}</p>
   </footer>
 </body>
 </html>
