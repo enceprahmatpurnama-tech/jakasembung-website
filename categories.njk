@@ -1,0 +1,8 @@
+---
+layout: layouts/category.njk
+pagination:
+  data: collections.articleCategories
+  size: 1
+  alias: category
+permalink: "/{{ category.name | slugify }}/index.html"
+---

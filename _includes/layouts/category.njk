@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ categoryDescriptions[category.name] or 'Kumpulan artikel kategori ' + category.name + ' di Jakasembung.' }}">
+  <title>{{ category.name }} | Jakasembung</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+      color: #263449;
+      background: #f4f8fc;
+    }
+
+    header {
+      background: #12345a;
+      color: white;
+      padding: 24px 20px;
+    }
+
+    .header-inner,
+    main,
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .brand {
+      margin: 0;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .tagline {
+      margin: 0;
+      color: #d7e8fa;
+    }
+
+    nav {
+      margin-top: 18px;
+    }
+
+    nav a {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      margin-right: 20px;
+      font-size: 14px;
+    }
+
+    main {
+      padding: 28px 20px;
+    }
+
+    .category-intro {
+      background: white;
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(18, 52, 90, 0.06);
+    }
+
+    .category-intro h1 {
+      margin-top: 0;
+      color: #12345a;
+      font-size: 30px;
+      line-height: 1.35;
+    }
+
+    .category-intro p {
+      margin-bottom: 0;
+      color: #52647a;
+    }
+
+    .article-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .article-card {
+      display: block;
+      padding: 24px;
+      background: white;
+      border: 1px solid #e3eaf2;
+      border-radius: 12px;
+      color: inherit;
+      text-decoration: none;
+      transition: box-shadow 0.2s;
+    }
+
+    .article-card:hover {
+      box-shadow: 0 6px 20px rgba(18, 52, 90, 0.10);
+    }
+
+    .article-card h2 {
+      color: #12345a;
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.4;
+    }
+
+    .article-date {
+      color: #65758b;
+      font-size: 14px;
+      margin: 0 0 10px;
+    }
+
+    .article-summary {
+      margin: 0;
+      color: #52647a;
+      font-size: 15px;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 14px;
+      color: #1769aa;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    footer {
+      padding: 24px 20px;
+      text-align: center;
+      color: #65758b;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .article-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .brand {
+        font-size: 26px;
+      }
+
+      .category-intro {
+        padding: 22px;
+      }
+
+      .category-intro h1 {
+        font-size: 25px;
+      }
+
+      .article-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav a {
+        margin-right: 12px;
+        margin-bottom: 8px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-inner">
+      <p class="brand">Jakasembung</p>
+      <p class="tagline">Pusat Pendidikan dan Pengetahuan</p>
+
+      <nav>
+        <a href="/">Beranda</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="category-intro">
+      <h1>{{ category.name }}</h1>
+      <p>{{ categoryDescriptions[category.name] or 'Kumpulan artikel kategori ' + category.name + ' di Jakasembung.' }}</p>
+    </section>
+
+    <section class="article-grid" aria-label="Daftar artikel">
+      {% for article in category.articles %}
+      <a class="article-card" href="{{ article.url }}">
+        <h2>{{ article.data.title }}</h2>
+        <p class="article-date">{{ article.data.date | dateFormat }}</p>
+        <p class="article-summary">{{ article.data.summary }}</p>
+        <span class="read-more">Baca artikel</span>
+      </a>
+      {% endfor %}
+    </section>
+  </main>
+
+  <footer>
+    <p>© Jakasembung — Pusat Pendidikan dan Pengetahuan</p>
+  </footer>
+</body>
+</html>
