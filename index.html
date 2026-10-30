@@ -63,10 +63,14 @@
             text-decoration: none;
             margin-right: 20px;
             font-size: 14px;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 3px;
+            transition: color 180ms ease, border-color 180ms ease;
         }
 
         nav a:hover {
             color: #9ed4ff;
+            border-bottom-color: #9ed4ff;
         }
 
         main {
@@ -194,8 +198,8 @@
 
             <nav>
                 <a href="/">Beranda</a>
-                {% for category in collections.articleCategories %}
-                <a href="{{ ('/' + (category.name | slugify) + '/') | escape }}">{{ category.name | escape }}</a>
+                {% for navCategory in collections.articleCategories %}
+                <a href="{{ ('/' + (navCategory.name | slugify) + '/') | escape }}">{{ navCategory.name | escape }}</a>
                 {% endfor %}
             </nav>
         </div>
