@@ -194,6 +194,9 @@
 
             <nav>
                 <a href="/">Beranda</a>
+                {% for category in collections.articleCategories %}
+                <a href="{{ ('/' + (category.name | slugify) + '/') | escape }}">{{ category.name | escape }}</a>
+                {% endfor %}
             </nav>
         </div>
     </header>

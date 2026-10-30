@@ -45,7 +45,10 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addCollection("articleCategories", (collectionApi) => {
-    const categories = new Map();
+    const categories = new Map(
+      ["Pendidikan", "Tutorial", "Pengetahuan Umum", "Arsip"]
+        .map((name) => [name, { name, articles: [] }])
+    );
 
     for (const { article } of getSortedArticles(collectionApi)) {
       const name = article.data.category;
