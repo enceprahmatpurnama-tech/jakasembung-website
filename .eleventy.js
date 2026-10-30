@@ -46,7 +46,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addCollection("articleCategories", (collectionApi) => {
     const categories = new Map(
-      ["Pendidikan", "Tutorial", "Pengetahuan Umum", "Arsip"]
+      ["Pendidikan", "Tutorial", "Pengetahuan Umum", "Laboratorium Pembelajaran"]
         .map((name) => [name, { name, articles: [] }])
     );
 

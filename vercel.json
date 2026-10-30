@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/arsip",
+      "destination": "/laboratorium-pembelajaran/",
+      "statusCode": 308
+    },
+    {
+      "source": "/arsip/",
+      "destination": "/laboratorium-pembelajaran/",
+      "statusCode": 308
+    }
+  ]
+}
