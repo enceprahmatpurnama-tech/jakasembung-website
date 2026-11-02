@@ -9,7 +9,7 @@ permalink: "/articles/rahasia-antariksa/index.html"
 ---
 ## Rahasia Antariksa: 10 Misteri Alam Semesta yang Masih Membuat Ilmuwan Penasaran
 
-<img src="/images/img%203.jpeg" alt="Gambar 3">
+<img src="/images/img%203.jpeg" alt="Gambar 3" width="600" style="display: block; margin: 0 auto;">
 
 Pernahkah kamu menatap langit malam dan bertanya-tanya, seberapa luas sebenarnya alam semesta? Di balik taburan bintang yang terlihat dari Bumi, ternyata terdapat dunia yang jauh lebih besar, penuh fenomena menakjubkan, dan menyimpan banyak misteri yang belum berhasil dipecahkan manusia.
 
@@ -222,12 +222,12 @@ Karena di balik setiap bintang yang bersinar, mungkin tersimpan sebuah rahasia y
 
 Referensi dan Bacaan Lanjutan
 
-## NASA – https://www.nasa.gov/
+NASA – https://www.nasa.gov/
 
-## NASA Science – https://science.nasa.gov/
+NASA Science – https://science.nasa.gov/
 
-## European Space Agency – https://www.esa.int/
+European Space Agency – https://www.esa.int/
 
-## Event Horizon Telescope – https://eventhorizontelescope.org/
+Event Horizon Telescope – https://eventhorizontelescope.org/
 
-## LIGO Laboratory – https://www.ligo.caltech.edu/
+LIGO Laboratory – https://www.ligo.caltech.edu/
