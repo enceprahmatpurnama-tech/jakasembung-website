@@ -35,7 +35,7 @@ Fakta menarik: Pada tahun 2019, dunia berhasil melihat gambar pertama bayangan l
 
 ## 2. Materi Gelap: Sesuatu yang Tidak Bisa Dilihat
 
-<IMAGE_PLACEHOLDER>
+<img src="/images/Materi%20gelap.jpeg" alt="Materi Gelap" width="900" style="display: block; margin: 0 auto;">
 
 Pernahkah kamu membayangkan bahwa sebagian besar materi di alam semesta justru tidak dapat dilihat secara langsung?
 
