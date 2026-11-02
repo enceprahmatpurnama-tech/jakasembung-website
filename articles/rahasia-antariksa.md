@@ -21,7 +21,7 @@ Mari kita menjelajahi 10 rahasia antariksa yang paling menarik dan membuat para 
 
 ## 1. Lubang Hitam: Monster Kosmik yang Mampu Menelan Cahaya
 
-<img src="/images/img%20Lubang Hitam.jpeg" alt="Lubang Hitam" width="900" style="display: block; margin: 0 auto;">
+<img src="/images/Lubang%20Hitam.jpeg" alt="Lubang Hitam" width="900" style="display: block; margin: 0 auto;">
 
 Salah satu misteri terbesar di alam semesta adalah lubang hitam atau black hole. Objek luar angkasa ini memiliki gaya gravitasi yang sangat kuat sehingga apa pun yang melewati batas tertentu, termasuk cahaya, tidak dapat melarikan diri.
 
