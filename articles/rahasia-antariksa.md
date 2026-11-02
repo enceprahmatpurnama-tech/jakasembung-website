@@ -8,7 +8,7 @@ summary: "Mengungkap rahasia alam semesta yang penuh misteri, keajaiban, dan fen
 permalink: "/articles/rahasia-antariksa/index.html"
 ---
 ## Rahasia Antariksa: 10 Misteri Alam Semesta yang Masih Membuat Ilmuwan Penasaran
-![Misteri Antariksa](images/img 1.jpg)
+![Misteri Antariksa](images/img-1.jpg)
 ![Misteri Antariksa](images/img 2.jpg)
 ![Misteri Antariksa](images/img 3.jpg)
 Pernahkah kamu menatap langit malam dan bertanya-tanya, seberapa luas sebenarnya alam semesta? Di balik taburan bintang yang terlihat dari Bumi, ternyata terdapat dunia yang jauh lebih besar, penuh fenomena menakjubkan, dan menyimpan banyak misteri yang belum berhasil dipecahkan manusia.
