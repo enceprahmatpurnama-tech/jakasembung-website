@@ -153,7 +153,7 @@ Penemuan berbagai eksoplanet menunjukkan bahwa alam semesta memiliki keragaman d
 
 ## 9. Waktu di Antariksa Bisa Berjalan Berbeda
 
-<img src="/images/Waktu%20di%20Antarikas.jpeg" alt="Waktu di Antariksa" width="900" style="display: block; margin: 0 auto;">
+<img src="/images/Waktu%20di%20Antariksa.jpeg" alt="Waktu di Antariksa" width="900" style="display: block; margin: 0 auto;">
 
 Tahukah kamu bahwa waktu tidak selalu berjalan dengan kecepatan yang sama bagi semua pengamat?
 
