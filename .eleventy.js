@@ -3,6 +3,7 @@ const fs = require("node:fs");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.ignores.add("README.md");
+  eleventyConfig.addPassthroughCopy({ "images": "images" });
 
   function getSortedArticles(collectionApi) {
     return collectionApi.getFilteredByGlob("articles/*.md")
