@@ -222,7 +222,11 @@ Karena di balik setiap bintang yang bersinar, mungkin tersimpan sebuah rahasia y
 
 Referensi dan Bacaan Lanjutan
 NASA – https://www.nasa.gov/
+
 NASA Science – https://science.nasa.gov/
+
 European Space Agency – https://www.esa.int/
+
 Event Horizon Telescope – https://eventhorizontelescope.org/
+
 LIGO Laboratory – https://www.ligo.caltech.edu/
