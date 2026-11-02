@@ -49,6 +49,8 @@ Sampai sekarang, para ilmuwan masih berusaha menemukan partikel penyusun materi 
 
 ## 3. Energi Gelap: Kekuatan Misterius yang Mempercepat Alam Semesta
 
+<img src="/images/Energi%20Gelap.jpeg" alt="Energi Gelap" width="900" style="display: block; margin: 0 auto;">
+
 Jika materi gelap sudah cukup membingungkan, alam semesta ternyata memiliki misteri lain yang disebut energi gelap atau dark energy.
 
 Energi gelap merupakan istilah yang digunakan untuk menjelaskan penyebab percepatan pengembangan alam semesta.
@@ -65,7 +67,7 @@ Dengan kata lain, manusia masih belum benar-benar memahami sebagian besar isi al
 
 ## 4. Apakah Ada Kehidupan di Planet Lain?
 
-<IMAGE_PLACEHOLDER>
+<img src="/images/Apakah%20Ada%20Kehidupan%20di%20Planet%20Lain.jpeg" alt="Apakah Ada Kehidupan di Planet Lain" width="900" style="display: block; margin: 0 auto;">
 
 Salah satu pertanyaan paling menarik dalam dunia astronomi adalah apakah manusia benar-benar sendirian di alam semesta.
 
@@ -83,6 +85,8 @@ Bisa jadi, suatu hari nanti manusia akan menemukan jawaban atas salah satu perta
 
 ## 5. Bintang Neutron: Objek Kecil dengan Kepadatan Luar Biasa
 
+<img src="/images/Bintang%20Neutron.jpeg" alt="Bintang Neutron" width="900" style="display: block; margin: 0 auto;">
+
 Bintang neutron merupakan salah satu objek paling ekstrem di alam semesta.
 
 Objek ini terbentuk dari sisa inti bintang masif yang mengalami ledakan supernova. Setelah keruntuhan gravitasi, materi di dalamnya menjadi sangat padat dan sebagian besar tersusun atas neutron.
@@ -97,7 +101,7 @@ Pulsar dapat berfungsi seperti jam kosmik karena sinyalnya sangat teratur. Para 
 
 ## 6. Galaksi Bima Sakti: Rumah Besar Tata Surya
 
-<IMAGE_PLACEHOLDER>
+<img src="/images/Galaksi%20Bima%20Sakti.jpeg" alt="Galaksi Bima Sakti" width="900" style="display: block; margin: 0 auto;">
 
 Bumi bukanlah pusat alam semesta. Planet kita hanya merupakan bagian kecil dari tata surya, yang berada di dalam sebuah galaksi bernama Bima Sakti atau Milky Way.
 
@@ -115,6 +119,8 @@ Menariknya, meskipun galaksi kita begitu besar, Bima Sakti bukanlah satu-satunya
 
 ## 7. Ledakan Dahsyat Big Bang: Bagaimana Alam Semesta Bermula?
 
+<img src="/images/Big%20Bang.jpeg" alt="Big Bang" width="900" style="display: block; margin: 0 auto;">
+
 Salah satu teori ilmiah paling terkenal mengenai asal-usul alam semesta adalah teori Big Bang.
 
 Teori ini menjelaskan bahwa alam semesta yang kita amati berkembang dari keadaan awal yang sangat panas dan sangat padat sekitar 13,8 miliar tahun yang lalu.
@@ -131,6 +137,8 @@ Walaupun teori Big Bang telah didukung banyak bukti pengamatan, pertanyaan tenta
 
 ## 8. Planet Berlian: Dunia Asing dengan Kondisi Ekstrem
 
+<img src="/images/Planet%20Berlian.jpeg" alt="Planet Berlian" width="900" style="display: block; margin: 0 auto;">
+
 Di luar tata surya terdapat berbagai planet dengan karakteristik yang sangat berbeda dari Bumi.
 
 Salah satu yang pernah menarik perhatian adalah 55 Cancri e, sebuah eksoplanet yang berada sangat dekat dengan bintang induknya.
@@ -144,6 +152,8 @@ Namun, istilah planet berlian sering digunakan secara populer dan belum berarti 
 Penemuan berbagai eksoplanet menunjukkan bahwa alam semesta memiliki keragaman dunia yang jauh melampaui apa yang dapat kita bayangkan.
 
 ## 9. Waktu di Antariksa Bisa Berjalan Berbeda
+
+<img src="/images/Waktu%20di%20Antarikas.jpeg" alt="Waktu di Antariksa" width="900" style="display: block; margin: 0 auto;">
 
 Tahukah kamu bahwa waktu tidak selalu berjalan dengan kecepatan yang sama bagi semua pengamat?
 
@@ -160,6 +170,8 @@ Efek ini bukan sekadar teori. Sistem navigasi GPS harus memperhitungkan perbedaa
 Dengan demikian, salah satu hal paling mengejutkan tentang alam semesta adalah bahwa waktu bukan sesuatu yang mutlak.
 
 ## 10. Apakah Alam Semesta Memiliki Batas?
+
+<img src="/images/Batas%20alam%20semesta.jpeg" alt="Batas Alam Semesta" width="900" style="display: block; margin: 0 auto;">
 
 Pertanyaan terakhir sekaligus salah satu misteri terbesar adalah apakah alam semesta memiliki batas.
 
