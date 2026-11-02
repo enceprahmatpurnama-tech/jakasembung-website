@@ -9,7 +9,7 @@ permalink: "/articles/rahasia-antariksa/index.html"
 ---
 ## Rahasia Antariksa: 10 Misteri Alam Semesta yang Masih Membuat Ilmuwan Penasaran
 
-<img src="/images/img%203.jpeg" alt="Gambar 3" width="900" style="display: block; margin: 0 auto;">
+<img src="/images/img%201.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
 
 Pernahkah kamu menatap langit malam dan bertanya-tanya, seberapa luas sebenarnya alam semesta? Di balik taburan bintang yang terlihat dari Bumi, ternyata terdapat dunia yang jauh lebih besar, penuh fenomena menakjubkan, dan menyimpan banyak misteri yang belum berhasil dipecahkan manusia.
 
@@ -20,6 +20,8 @@ Seiring berkembangnya teknologi astronomi, manusia semakin mampu mengungkap raha
 Mari kita menjelajahi 10 rahasia antariksa yang paling menarik dan membuat para ilmuwan terus penasaran!
 
 ## 1. Lubang Hitam: Monster Kosmik yang Mampu Menelan Cahaya
+
+<img src="/images/img%20Lubang Hitam.jpeg" alt="Lubang Hitam" width="900" style="display: block; margin: 0 auto;">
 
 Salah satu misteri terbesar di alam semesta adalah lubang hitam atau black hole. Objek luar angkasa ini memiliki gaya gravitasi yang sangat kuat sehingga apa pun yang melewati batas tertentu, termasuk cahaya, tidak dapat melarikan diri.
 
