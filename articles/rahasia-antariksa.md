@@ -214,16 +214,3 @@ NASA Science – https://science.nasa.gov/
 European Space Agency – https://www.esa.int/
 Event Horizon Telescope – https://eventhorizontelescope.org/
 LIGO Laboratory – https://www.ligo.caltech.edu/
-Informasi SEO Blog
-
-Judul SEO: 10 Rahasia Antariksa yang Belum Terpecahkan, dari Lubang Hitam hingga Kehidupan Alien
-
-Meta Description: Jelajahi 10 rahasia antariksa paling menakjubkan, mulai dari lubang hitam, materi gelap, energi gelap, planet asing, hingga misteri asal-usul alam semesta.
-
-Kata kunci utama: Rahasia antariksa
-
-Kata kunci pendukung: Misteri alam semesta, lubang hitam, planet asing, kehidupan alien, galaksi Bima Sakti, fakta luar angkasa, astronomi.
-
-Kategori blog: Sains dan Pengetahuan Umum
-
-Tag: Antariksa, Alam Semesta, Astronomi, NASA, Planet, Galaksi, Sains.
