@@ -234,14 +234,10 @@ Satu hal yang pasti, semakin jauh manusia menjelajahi antariksa, semakin besar p
 
 Karena di balik setiap bintang yang bersinar, mungkin tersimpan sebuah rahasia yang belum pernah diketahui manusia.
 
-Referensi dan Bacaan Lanjutan
+## Referensi dan Bacaan Lanjutan
 
-NASA – https://www.nasa.gov/
-
-NASA Science – https://science.nasa.gov/
-
-European Space Agency – https://www.esa.int/
-
-Event Horizon Telescope – https://eventhorizontelescope.org/
-
-LIGO Laboratory – https://www.ligo.caltech.edu/
+- [NASA](https://www.nasa.gov/)
+- [NASA Science](https://science.nasa.gov/)
+- [European Space Agency](https://www.esa.int/)
+- [Event Horizon Telescope](https://eventhorizontelescope.org/)
+- [LIGO Laboratory](https://www.ligo.caltech.edu/)
