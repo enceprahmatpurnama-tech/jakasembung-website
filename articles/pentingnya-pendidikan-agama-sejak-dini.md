@@ -18,7 +18,7 @@ Di tengah derasnya arus informasi digital, pendidikan agama menjadi salah satu f
 
 ## 1. Pendidikan Agama sebagai Fondasi Pembentukan Karakter Anak
 
-<img src="/images/img%201.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
+<img src="/images/Pendidikan%20Agama.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
 
 Pendidikan agama sejak dini memiliki peran penting dalam membentuk karakter dan kepribadian anak. Masa kanak-kanak merupakan periode ketika anak mudah menyerap informasi dan meniru perilaku orang-orang di sekitarnya.
 
@@ -28,7 +28,7 @@ Nilai-nilai tersebut menjadi bekal bagi anak dalam menghadapi berbagai persoalan
 
 ## 2. Tantangan Pendidikan Anak di Era Digital
 
-<img src="/images/Pendidikan%20Agama.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
+<img src="/images/Tantangan%20Digital.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
 
 Era digital memberikan banyak manfaat bagi perkembangan anak, seperti kemudahan mengakses informasi, belajar secara interaktif, dan mengembangkan kreativitas. Akan tetapi, penggunaan teknologi tanpa pengawasan juga dapat menimbulkan berbagai dampak negatif.
 
