@@ -117,5 +117,3 @@ Orang tua, guru, dan masyarakat memiliki tanggung jawab bersama untuk menanamkan
 Teknologi seharusnya tidak menjadi penghalang bagi pendidikan agama, melainkan dapat dimanfaatkan sebagai sarana untuk memperkuat pembelajaran. Dengan pendidikan agama yang ditanamkan sejak dini, kita dapat berharap lahir generasi yang tidak hanya cerdas dalam teknologi, tetapi juga bijaksana dalam bersikap, santun dalam bertutur kata, dan memiliki akhlak yang mulia.
 
 Karena anak yang cerdas adalah harapan masa depan, tetapi anak yang cerdas, beriman, dan berakhlak mulia adalah investasi terbaik bagi peradaban bangsa.
-
-Catatan gambar: Gambar ilustrasi di atas merupakan referensi visual untuk memperkuat isi artikel. Untuk membuat gambar khusus yang dapat digunakan sebagai ilustrasi artikel, Anda perlu masuk ke akun ChatGPT. Setelah masuk, saya dapat membantu membuat ilustrasi yang sesuai dengan tema pendidikan agama anak di era digital.
