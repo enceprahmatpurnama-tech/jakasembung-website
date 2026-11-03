@@ -8,6 +8,8 @@ summary: "Memahami peran agama di Era Digital"
 permalink: "/articles/slug-artikel/index.html"
 ---
 
+<img src="/images/img%201.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
+
 Perkembangan teknologi digital pada era modern saat ini telah membawa perubahan besar dalam kehidupan manusia, termasuk dalam dunia pendidikan dan pola pengasuhan anak. Kehadiran internet, media sosial, permainan digital, dan berbagai platform informasi memberikan kemudahan bagi anak-anak untuk memperoleh pengetahuan. Namun, di balik berbagai kemudahan tersebut, terdapat tantangan yang perlu mendapat perhatian serius, terutama dalam membentuk karakter dan moral generasi muda.
 
 Salah satu hal penting yang perlu ditanamkan kepada anak sejak usia dini adalah pendidikan agama. Pendidikan agama bukan hanya mengajarkan anak untuk mengenal Tuhan dan menjalankan ibadah, tetapi juga membentuk kepribadian, akhlak, moral, serta perilaku yang baik dalam kehidupan sehari-hari.
@@ -15,6 +17,8 @@ Salah satu hal penting yang perlu ditanamkan kepada anak sejak usia dini adalah 
 Di tengah derasnya arus informasi digital, pendidikan agama menjadi salah satu fondasi penting agar anak mampu membedakan perilaku yang baik dan buruk serta menggunakan teknologi secara bijak dan bertanggung jawab.
 
 ## 1. Pendidikan Agama sebagai Fondasi Pembentukan Karakter Anak
+
+<img src="/images/img%201.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
 
 Pendidikan agama sejak dini memiliki peran penting dalam membentuk karakter dan kepribadian anak. Masa kanak-kanak merupakan periode ketika anak mudah menyerap informasi dan meniru perilaku orang-orang di sekitarnya.
 
@@ -24,9 +28,7 @@ Nilai-nilai tersebut menjadi bekal bagi anak dalam menghadapi berbagai persoalan
 
 ## 2. Tantangan Pendidikan Anak di Era Digital
 
-Healthy Screen Habits for Kids A Parent's Guide
-
-[schoolvisitors.co.uk](<https://www.schoolvisitors.co.uk/blog/encouraging-healthy-screen-time-habits-for-childre?utm_source=chatgpt.com>)
+<img src="/images/Pendidikan%20Agama.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
 
 Era digital memberikan banyak manfaat bagi perkembangan anak, seperti kemudahan mengakses informasi, belajar secara interaktif, dan mengembangkan kreativitas. Akan tetapi, penggunaan teknologi tanpa pengawasan juga dapat menimbulkan berbagai dampak negatif.
 
@@ -42,9 +44,7 @@ Oleh karena itu, pendidikan agama sangat diperlukan sebagai pedoman agar anak ma
 
 ## 3. Menanamkan Nilai-Nilai Agama Sejak Usia Dini
 
-The most insightful stories about Online Learning - Medium
-
-[medium.com](<https://medium.com/tag/online-learning/archive?utm_source=chatgpt.com>)
+<img src="/images/Penanaman%20Nilai%20Agama.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
 
 Pendidikan agama sebaiknya tidak hanya diberikan melalui teori atau nasihat, tetapi juga melalui pembiasaan dalam kehidupan sehari-hari.
 
@@ -60,9 +60,7 @@ Pembiasaan yang dilakukan secara konsisten akan membantu nilai-nilai agama tumbu
 
 ## 4. Peran Orang Tua dan Guru dalam Pendidikan Agama di Era Digital
 
-Profil MIS Al Khoiriyyah IV Karangpawitan: Madrasah Swasta Terakreditasi A di Garut - Pikiran Rakyat Garut
-
-[garut.pikiran-rakyat.com](<https://garut.pikiran-rakyat.com/pendidikan/pr-5210193746/profil-mis-al-khoiriyyah-iv-karangpawitan-madrasah-swasta-terakreditasi-a-di-garut?utm_source=chatgpt.com>)
+<img src="/images/Peran%20Orang%20tua.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
 
 Keberhasilan pendidikan agama tidak hanya menjadi tanggung jawab lembaga pendidikan, tetapi juga membutuhkan keterlibatan aktif orang tua dan lingkungan masyarakat.
 
@@ -74,9 +72,7 @@ Kerja sama antara orang tua dan guru akan menciptakan lingkungan pendidikan yang
 
 ## 5. Memanfaatkan Teknologi Digital sebagai Sarana Pendidikan Agama
 
-Al Basira Academy | Learn Quran Online | Powered by ILM
-
-[basira.us](<https://basira.us/reading?utm_source=chatgpt.com>)
+<img src="/Pemanfaatan/img%20Teknologi.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
 
 Teknologi digital sebenarnya tidak selalu memberikan dampak negatif. Jika digunakan secara tepat, teknologi justru dapat menjadi sarana yang efektif untuk mendukung pendidikan agama.
 
@@ -92,9 +88,7 @@ Dengan demikian, anak tidak hanya menjadi pengguna teknologi, tetapi juga mampu 
 
 ## 6. Membangun Generasi yang Beriman, Berakhlak, dan Cerdas Digital
 
-SD IT Insan Madani Sengayam
-
-[sditimas.sch.id](<https://sditimas.sch.id/?utm_source=chatgpt.com>)
+<img src="/images/Membangun%20Generasi.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
 
 Tujuan utama pendidikan agama sejak dini bukan sekadar menjadikan anak pandai membaca kitab suci atau memahami aturan ibadah, melainkan membentuk generasi yang memiliki keseimbangan antara kecerdasan intelektual, emosional, dan spiritual.
 
