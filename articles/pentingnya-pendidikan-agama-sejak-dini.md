@@ -8,16 +8,9 @@ summary: "Memahami peran agama di Era Digital"
 permalink: "/articles/slug-artikel/index.html"
 ---
 
-## Pendahuluan
-
-Tulis isi artikel di sini.
-
-
 # Pentingnya Pendidikan Agama Sejak Dini di Era Digital
 
-Home | Al Jannah Academy
 
-[aljannahacademy.com](<https://www.aljannahacademy.com/?utm_source=chatgpt.com>)
 
 ## Pendahuluan
 
