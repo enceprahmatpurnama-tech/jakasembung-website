@@ -48,6 +48,19 @@ module.exports = function (eleventyConfig) {
     return getSortedArticles(collectionApi).map(({ article }) => article);
   });
 
+  eleventyConfig.addFilter("articleNavigation", (articles, url) => {
+    const currentIndex = articles.findIndex((article) => article.url === url);
+
+    if (currentIndex === -1) {
+      throw new Error(`Unable to find article for navigation: ${url}`);
+    }
+
+    return {
+      newer: articles[currentIndex - 1] || null,
+      older: articles[currentIndex + 1] || null
+    };
+  });
+
   eleventyConfig.addCollection("articleCategories", (collectionApi) => {
     const categories = new Map(
       ["Pendidikan", "Tutorial", "Pengetahuan Umum", "Laboratorium Pembelajaran"]

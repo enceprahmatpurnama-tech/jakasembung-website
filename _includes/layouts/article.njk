@@ -119,6 +119,30 @@
       border-radius: 8px;
     }
 
+    .article-navigation {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid #e3eaf2;
+    }
+
+    .article-navigation a {
+      color: #1769aa;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .article-navigation a:hover {
+      text-decoration: underline;
+    }
+
+    .article-navigation .older {
+      margin-left: auto;
+      text-align: right;
+    }
+
     footer {
       padding: 24px 20px;
       text-align: center;
@@ -174,6 +198,24 @@
 
       {{ content | safe }}
     </article>
+
+    {% set articleLinks = collections.articles | articleNavigation(page.url) %}
+    {% if articleLinks.newer or articleLinks.older %}
+    <nav class="article-navigation" aria-label="Navigasi artikel">
+      {% if articleLinks.newer %}
+      <a href="{{ articleLinks.newer.url | escape }}">
+        &larr; Artikel lebih baru<br>
+        <span>{{ articleLinks.newer.data.title | escape }}</span>
+      </a>
+      {% endif %}
+      {% if articleLinks.older %}
+      <a class="older" href="{{ articleLinks.older.url | escape }}">
+        Artikel lebih lama &rarr;<br>
+        <span>{{ articleLinks.older.data.title | escape }}</span>
+      </a>
+      {% endif %}
+    </nav>
+    {% endif %}
   </main>
 
   <footer>
