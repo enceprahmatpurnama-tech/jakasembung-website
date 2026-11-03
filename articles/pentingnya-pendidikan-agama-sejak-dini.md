@@ -8,12 +8,6 @@ summary: "Memahami peran agama di Era Digital"
 permalink: "/articles/slug-artikel/index.html"
 ---
 
-# Pentingnya Pendidikan Agama Sejak Dini di Era Digital
-
-
-
-## Pendahuluan
-
 Perkembangan teknologi digital pada era modern saat ini telah membawa perubahan besar dalam kehidupan manusia, termasuk dalam dunia pendidikan dan pola pengasuhan anak. Kehadiran internet, media sosial, permainan digital, dan berbagai platform informasi memberikan kemudahan bagi anak-anak untuk memperoleh pengetahuan. Namun, di balik berbagai kemudahan tersebut, terdapat tantangan yang perlu mendapat perhatian serius, terutama dalam membentuk karakter dan moral generasi muda.
 
 Salah satu hal penting yang perlu ditanamkan kepada anak sejak usia dini adalah pendidikan agama. Pendidikan agama bukan hanya mengajarkan anak untuk mengenal Tuhan dan menjalankan ibadah, tetapi juga membentuk kepribadian, akhlak, moral, serta perilaku yang baik dalam kehidupan sehari-hari.
