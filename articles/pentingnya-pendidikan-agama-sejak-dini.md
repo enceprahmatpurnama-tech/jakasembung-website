@@ -72,7 +72,7 @@ Kerja sama antara orang tua dan guru akan menciptakan lingkungan pendidikan yang
 
 ## 5. Memanfaatkan Teknologi Digital sebagai Sarana Pendidikan Agama
 
-<img src="/Pemanfaatan/img%20Teknologi.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
+<img src="/images/Pemanfaatan%20Teknologi.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
 
 Teknologi digital sebenarnya tidak selalu memberikan dampak negatif. Jika digunakan secara tepat, teknologi justru dapat menjadi sarana yang efektif untuk mendukung pendidikan agama.
 
