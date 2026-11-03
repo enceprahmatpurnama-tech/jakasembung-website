@@ -8,7 +8,7 @@ summary: "Memahami peran agama di Era Digital"
 permalink: "/articles/slug-artikel/index.html"
 ---
 
-<img src="/images/Cara-Mendidik-Anak-di-Era-Digital-Sesuai-Ajaran-Islam.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
+<img src="/images/Cara%20Mendidik%20Anak%20Digital.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
 
 Perkembangan teknologi digital pada era modern saat ini telah membawa perubahan besar dalam kehidupan manusia, termasuk dalam dunia pendidikan dan pola pengasuhan anak. Kehadiran internet, media sosial, permainan digital, dan berbagai platform informasi memberikan kemudahan bagi anak-anak untuk memperoleh pengetahuan. Namun, di balik berbagai kemudahan tersebut, terdapat tantangan yang perlu mendapat perhatian serius, terutama dalam membentuk karakter dan moral generasi muda.
 
