@@ -1,0 +1,3505 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ninja Penjaga Asmaul Husna - Kelas 5</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            #7c3aed 0,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 15%,
+            #0ea5e9 0,
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #020617,
+            #172554 55%,
+            #312e81
+        );
+}
+
+button{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   SCREEN
+========================================================= */
+
+.screen{
+    display:none;
+    min-height:100vh;
+    padding:20px;
+}
+
+.screen.active{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+.start-box{
+    width:min(1000px,95%);
+    background:rgba(15,23,42,.97);
+    border:3px solid #8b5cf6;
+    border-radius:30px;
+    padding:35px 25px;
+    text-align:center;
+
+    box-shadow:
+        0 0 60px rgba(139,92,246,.35);
+}
+
+.ninja-logo{
+    font-size:100px;
+    animation:ninjaFloat 2s infinite ease-in-out;
+}
+
+@keyframes ninjaFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+}
+
+.start-box h1{
+
+    margin:5px 0;
+
+    font-size:
+        clamp(
+            30px,
+            6vw,
+            58px
+        );
+
+    color:#facc15;
+
+    text-shadow:
+        4px 4px #581c87;
+}
+
+.start-subtitle{
+
+    max-width:780px;
+
+    margin:
+        10px auto 25px;
+
+    font-size:20px;
+
+    line-height:1.5;
+
+    color:#ddd6fe;
+}
+
+.start-cards{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:10px;
+
+    margin:
+        25px 0;
+}
+
+.start-card{
+
+    background:#1e293b;
+
+    border:
+        1px solid #475569;
+
+    border-radius:15px;
+
+    padding:15px 5px;
+}
+
+.start-card-icon{
+    font-size:35px;
+}
+
+.start-card-name{
+
+    font-weight:bold;
+
+    color:#facc15;
+
+    margin-top:5px;
+
+    font-size:14px;
+}
+
+.start-card-meaning{
+
+    font-size:11px;
+
+    color:#cbd5e1;
+
+    margin-top:5px;
+}
+
+.start-button,
+.restart-button{
+
+    border:none;
+
+    border-radius:18px;
+
+    padding:
+        16px 35px;
+
+    background:#22c55e;
+
+    color:white;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 6px 0 #15803d;
+
+    transition:.2s;
+}
+
+.start-button:hover,
+.restart-button:hover{
+
+    transform:scale(1.05);
+
+}
+
+.start-button:active,
+.restart-button:active{
+
+    transform:
+        translateY(5px);
+
+    box-shadow:
+        0 1px 0 #15803d;
+}
+
+
+/* =========================================================
+   GAME
+========================================================= */
+
+#gameScreen{
+    align-items:flex-start;
+}
+
+.game{
+
+    width:
+        min(1100px,100%);
+
+    margin:auto;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.top-status{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr;
+
+    gap:10px;
+
+    margin-bottom:12px;
+}
+
+.status{
+
+    background:
+        rgba(15,23,42,.95);
+
+    border:
+        2px solid #334155;
+
+    border-radius:14px;
+
+    text-align:center;
+
+    padding:10px;
+}
+
+.status-label{
+
+    font-size:12px;
+
+    color:#94a3b8;
+}
+
+.status-value{
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#facc15;
+
+    margin-top:3px;
+}
+
+.hearts{
+
+    color:#ef4444;
+
+    letter-spacing:2px;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.progress-wrap{
+
+    height:16px;
+
+    background:#020617;
+
+    border:
+        2px solid #334155;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-bottom:14px;
+}
+
+.progress{
+
+    height:100%;
+
+    width:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #22c55e,
+            #8b5cf6,
+            #facc15
+        );
+
+    transition:
+        width .4s;
+}
+
+
+/* =========================================================
+   MAP
+========================================================= */
+
+.map{
+
+    background:
+        rgba(15,23,42,.9);
+
+    border:
+        2px solid #6366f1;
+
+    border-radius:20px;
+
+    padding:12px;
+
+    margin-bottom:15px;
+}
+
+.map-title{
+
+    text-align:center;
+
+    font-weight:bold;
+
+    color:#ddd6fe;
+
+    margin-bottom:10px;
+}
+
+.gates{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(5,1fr);
+
+    gap:8px;
+}
+
+.gate{
+
+    text-align:center;
+
+    background:#1e293b;
+
+    border:
+        2px solid #475569;
+
+    border-radius:13px;
+
+    padding:8px 3px;
+
+    font-size:11px;
+
+    opacity:.5;
+
+    transition:.4s;
+}
+
+.gate-icon{
+
+    display:block;
+
+    font-size:28px;
+
+    margin-bottom:3px;
+}
+
+.gate.current{
+
+    opacity:1;
+
+    border-color:#facc15;
+
+    background:#713f12;
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 0 22px
+        rgba(250,204,21,.45);
+}
+
+.gate.done{
+
+    opacity:1;
+
+    border-color:#22c55e;
+
+    background:#14532d;
+}
+
+
+/* =========================================================
+   POWER
+========================================================= */
+
+.power-bar{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:7px;
+
+    margin-bottom:12px;
+
+    flex-wrap:wrap;
+}
+
+.power{
+
+    background:#1e293b;
+
+    border:
+        1px solid #475569;
+
+    border-radius:20px;
+
+    padding:
+        6px 12px;
+
+    font-size:12px;
+
+    opacity:.4;
+
+    transition:.3s;
+}
+
+.power.active{
+
+    opacity:1;
+
+    border-color:#facc15;
+
+    box-shadow:
+        0 0 12px
+        rgba(250,204,21,.4);
+}
+
+
+/* =========================================================
+   ARENA
+========================================================= */
+
+.arena{
+
+    position:relative;
+
+    height:270px;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    border:
+        3px solid #475569;
+
+    margin-bottom:15px;
+
+    background:
+
+        radial-gradient(
+            circle at 78% 22%,
+            #fef3c7 0,
+            #fde68a 4%,
+            transparent 8%
+        ),
+
+        linear-gradient(
+            #312e81,
+            #1e1b4b 55%,
+            #172554
+        );
+}
+
+.stars{
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+        radial-gradient(
+            circle,
+            white 1px,
+            transparent 2px
+        );
+
+    background-size:
+        55px 45px;
+
+    opacity:.5;
+}
+
+.moon{
+
+    position:absolute;
+
+    right:10%;
+
+    top:22px;
+
+    font-size:50px;
+
+    filter:
+        drop-shadow(
+            0 0 15px #facc15
+        );
+}
+
+.cloud{
+
+    position:absolute;
+
+    font-size:50px;
+
+    opacity:.25;
+}
+
+.cloud1{
+
+    left:15%;
+
+    top:40px;
+}
+
+.cloud2{
+
+    right:30%;
+
+    top:75px;
+}
+
+.ground{
+
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+
+    height:48px;
+
+    background:
+        linear-gradient(
+            #365314,
+            #1a2e05
+        );
+
+    border-top:
+        4px solid #4d7c0f;
+}
+
+.player{
+
+    position:absolute;
+
+    left:13%;
+
+    bottom:42px;
+
+    font-size:75px;
+
+    z-index:5;
+}
+
+.player.attack{
+
+    animation:
+        attack .55s ease;
+}
+
+@keyframes attack{
+
+    0%{
+        transform:
+            translateX(0);
+    }
+
+    40%{
+        transform:
+            translateX(120px)
+            rotate(-15deg);
+    }
+
+    70%{
+        transform:
+            translateX(135px)
+            rotate(15deg);
+    }
+
+    100%{
+        transform:
+            translateX(0);
+    }
+
+}
+
+.player.hit{
+
+    animation:
+        hit .55s ease;
+}
+
+@keyframes hit{
+
+    0%,100%{
+        transform:
+            translateX(0);
+    }
+
+    25%{
+        transform:
+            translateX(-22px)
+            rotate(-10deg);
+    }
+
+    50%{
+        transform:
+            translateX(22px)
+            rotate(10deg);
+    }
+
+    75%{
+        transform:
+            translateX(-15px);
+    }
+
+}
+
+.enemy{
+
+    position:absolute;
+
+    right:13%;
+
+    bottom:42px;
+
+    font-size:75px;
+
+    z-index:5;
+}
+
+.enemy.defeat{
+
+    animation:
+        defeat .75s forwards;
+}
+
+@keyframes defeat{
+
+    0%{
+        transform:scale(1);
+
+        opacity:1;
+    }
+
+    45%{
+        transform:
+            scale(1.3)
+            rotate(20deg);
+    }
+
+    100%{
+        transform:
+            scale(.1)
+            rotate(100deg)
+            translateY(-80px);
+
+        opacity:0;
+    }
+
+}
+
+.enemy.attack{
+
+    animation:
+        enemyAttack .5s ease;
+}
+
+@keyframes enemyAttack{
+
+    0%,100%{
+        transform:
+            translateX(0);
+    }
+
+    50%{
+        transform:
+            translateX(-100px);
+    }
+
+}
+
+.battle-text{
+
+    position:absolute;
+
+    top:17px;
+
+    width:100%;
+
+    text-align:center;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:#facc15;
+
+    text-shadow:
+        2px 2px #020617;
+
+    z-index:10;
+}
+
+
+/* =========================================================
+   EFFECT
+========================================================= */
+
+.effect{
+
+    position:absolute;
+
+    z-index:30;
+
+    pointer-events:none;
+
+    font-size:42px;
+
+    font-weight:bold;
+}
+
+.effect.correct{
+
+    animation:
+        correctEffect .8s forwards;
+}
+
+@keyframes correctEffect{
+
+    0%{
+        left:42%;
+        top:45%;
+        opacity:1;
+        transform:scale(.4);
+    }
+
+    50%{
+        left:65%;
+        top:40%;
+        opacity:1;
+        transform:
+            scale(1.6)
+            rotate(15deg);
+    }
+
+    100%{
+        left:75%;
+        top:20%;
+        opacity:0;
+        transform:scale(2);
+    }
+
+}
+
+.effect.wrong{
+
+    animation:
+        wrongEffect .8s forwards;
+}
+
+@keyframes wrongEffect{
+
+    0%{
+        left:68%;
+        top:40%;
+        opacity:1;
+        transform:scale(.4);
+    }
+
+    50%{
+        left:42%;
+        top:40%;
+        opacity:1;
+        transform:scale(1.5);
+    }
+
+    100%{
+        left:20%;
+        top:20%;
+        opacity:0;
+        transform:scale(2);
+    }
+
+}
+
+
+/* =========================================================
+   QUESTION
+========================================================= */
+
+.question-box{
+
+    background:#f8fafc;
+
+    color:#0f172a;
+
+    border-radius:25px;
+
+    padding:25px;
+}
+
+.question-number{
+
+    color:#4338ca;
+
+    font-weight:bold;
+}
+
+.question{
+
+    font-size:
+        clamp(
+            21px,
+            4vw,
+            29px
+        );
+
+    font-weight:bold;
+
+    line-height:1.45;
+
+    margin:
+        12px 0 22px;
+}
+
+.answers{
+
+    display:grid;
+
+    gap:11px;
+}
+
+.answer{
+
+    border:
+        3px solid #cbd5e1;
+
+    background:white;
+
+    color:#0f172a;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    text-align:left;
+
+    transition:.2s;
+}
+
+.answer:hover{
+
+    border-color:#6366f1;
+
+    background:#eef2ff;
+
+    transform:
+        translateX(5px);
+}
+
+.answer.correct{
+
+    background:#dcfce7;
+
+    border-color:#22c55e;
+
+    color:#166534;
+}
+
+.answer.wrong{
+
+    background:#fee2e2;
+
+    border-color:#ef4444;
+
+    color:#991b1b;
+}
+
+.answer.disabled{
+
+    pointer-events:none;
+}
+
+.feedback{
+
+    display:none;
+
+    margin-top:15px;
+
+    padding:15px;
+
+    border-radius:14px;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    line-height:1.5;
+}
+
+.feedback.show{
+
+    display:block;
+}
+
+.feedback.correct{
+
+    background:#dcfce7;
+
+    color:#166534;
+}
+
+.feedback.wrong{
+
+    background:#fee2e2;
+
+    color:#991b1b;
+}
+
+.next-wrap{
+
+    text-align:center;
+
+    margin-top:18px;
+}
+
+.next-button{
+
+    display:none;
+
+    border:none;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:14px 25px;
+
+    border-radius:15px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 5px 0 #1d4ed8;
+}
+
+.next-button:hover{
+
+    transform:
+        scale(1.04);
+}
+
+
+/* =========================================================
+   BOSS
+========================================================= */
+
+.boss-screen{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:100;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:
+        rgba(2,6,23,.92);
+}
+
+.boss-screen.show{
+
+    display:flex;
+}
+
+.boss-box{
+
+    width:
+        min(650px,92%);
+
+    text-align:center;
+
+    background:#1e293b;
+
+    border:
+        3px solid #f59e0b;
+
+    border-radius:30px;
+
+    padding:35px;
+
+    box-shadow:
+        0 0 60px
+        rgba(245,158,11,.4);
+
+    animation:
+        bossAppear .5s ease;
+}
+
+@keyframes bossAppear{
+
+    from{
+        transform:scale(.5);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+.boss{
+
+    font-size:105px;
+
+    animation:
+        bossFloat 1s infinite alternate;
+}
+
+@keyframes bossFloat{
+
+    from{
+        transform:
+            translateY(0);
+    }
+
+    to{
+        transform:
+            translateY(-10px);
+    }
+
+}
+
+.boss-title{
+
+    font-size:34px;
+
+    font-weight:bold;
+
+    color:#facc15;
+}
+
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+.result-box{
+
+    width:
+        min(800px,95%);
+
+    background:#0f172a;
+
+    border:
+        3px solid #facc15;
+
+    border-radius:30px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:
+        0 0 50px
+        rgba(250,204,21,.25);
+}
+
+.trophy{
+
+    font-size:100px;
+}
+
+.result-box h1{
+
+    color:#facc15;
+}
+
+.final-score{
+
+    font-size:55px;
+
+    font-weight:bold;
+
+    color:#22c55e;
+}
+
+.rank{
+
+    font-size:28px;
+
+    color:#ddd6fe;
+
+    margin:12px;
+}
+
+.result-message{
+
+    color:#e2e8f0;
+
+    font-size:18px;
+
+    line-height:1.6;
+
+    margin-bottom:25px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:800px){
+
+    .start-cards{
+
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .start-cards{
+
+        grid-template-columns:1fr;
+    }
+
+    .top-status{
+
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .status-value{
+
+        font-size:17px;
+    }
+
+    .gates{
+
+        grid-template-columns:
+            repeat(3,1fr);
+    }
+
+    .arena{
+
+        height:220px;
+    }
+
+    .player,
+    .enemy{
+
+        font-size:60px;
+    }
+
+    .question-box{
+
+        padding:18px;
+    }
+
+    .answer{
+
+        font-size:16px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     START SCREEN
+========================================================= -->
+
+<section
+    id="startScreen"
+    class="screen active">
+
+    <div class="start-box">
+
+        <div class="ninja-logo">
+            🥷
+        </div>
+
+        <h1>
+            NINJA PENJAGA
+            <br>
+            5 KEKUATAN ASMAUL HUSNA
+        </h1>
+
+        <div class="start-subtitle">
+
+            🗡️ Petualangan PAI Kelas 5 SD 🗡️
+
+            <br>
+
+            Taklukkan lima wilayah,
+            kuasai lima Asmaul Husna,
+            dan buktikan bahwa kamu adalah
+            Ninja Penjaga yang hebat!
+
+        </div>
+
+
+        <div class="start-cards">
+
+
+            <div class="start-card">
+
+                <div class="start-card-icon">
+                    💪
+                </div>
+
+                <div class="start-card-name">
+                    Al-Qawiyyu
+                </div>
+
+                <div class="start-card-meaning">
+                    Maha Kuat
+                </div>
+
+            </div>
+
+
+            <div class="start-card">
+
+                <div class="start-card-icon">
+                    🌱
+                </div>
+
+                <div class="start-card-name">
+                    Al-Muhyi
+                </div>
+
+                <div class="start-card-meaning">
+                    Maha Menghidupkan
+                </div>
+
+            </div>
+
+
+            <div class="start-card">
+
+                <div class="start-card-icon">
+                    ⚔️
+                </div>
+
+                <div class="start-card-name">
+                    Al-Bā'its
+                </div>
+
+                <div class="start-card-meaning">
+                    Maha Membangkitkan
+                </div>
+
+            </div>
+
+
+            <div class="start-card">
+
+                <div class="start-card-icon">
+                    👑
+                </div>
+
+                <div class="start-card-name">
+                    Al-Qayyūm
+                </div>
+
+                <div class="start-card-meaning">
+                    Maha Berdiri Sendiri
+                </div>
+
+            </div>
+
+
+            <div class="start-card">
+
+                <div class="start-card-icon">
+                    🌙
+                </div>
+
+                <div class="start-card-name">
+                    Al-Mumīt
+                </div>
+
+                <div class="start-card-meaning">
+                    Maha Mematikan
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="start-button"
+            onclick="mulaiGame()">
+
+            🥷 MULAI PETUALANGAN
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     GAME SCREEN
+========================================================= -->
+
+<section
+    id="gameScreen"
+    class="screen">
+
+    <div class="game">
+
+
+        <!-- STATUS -->
+
+        <div class="top-status">
+
+
+            <div class="status">
+
+                <div class="status-label">
+                    SOAL
+                </div>
+
+                <div
+                    class="status-value"
+                    id="nomorSoal">
+
+                    1 / 30
+
+                </div>
+
+            </div>
+
+
+            <div class="status">
+
+                <div class="status-label">
+                    SKOR
+                </div>
+
+                <div
+                    class="status-value"
+                    id="skor">
+
+                    0
+
+                </div>
+
+            </div>
+
+
+            <div class="status">
+
+                <div class="status-label">
+                    NYAWA
+                </div>
+
+                <div
+                    class="status-value hearts"
+                    id="nyawa">
+
+                    ❤️❤️❤️
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- PROGRESS -->
+
+        <div class="progress-wrap">
+
+            <div
+                class="progress"
+                id="progress">
+            </div>
+
+        </div>
+
+
+        <!-- PETA -->
+
+        <div class="map">
+
+            <div class="map-title">
+
+                🗺️ PETA PETUALANGAN
+                5 KEKUATAN ASMAUL HUSNA
+
+            </div>
+
+
+            <div class="gates">
+
+
+                <div
+                    class="gate current"
+                    id="gate1">
+
+                    <span class="gate-icon">
+                        💪
+                    </span>
+
+                    Al-Qawiyyu
+
+                </div>
+
+
+                <div
+                    class="gate"
+                    id="gate2">
+
+                    <span class="gate-icon">
+                        🌱
+                    </span>
+
+                    Al-Muhyi
+
+                </div>
+
+
+                <div
+                    class="gate"
+                    id="gate3">
+
+                    <span class="gate-icon">
+                        ⚔️
+                    </span>
+
+                    Al-Bā'its
+
+                </div>
+
+
+                <div
+                    class="gate"
+                    id="gate4">
+
+                    <span class="gate-icon">
+                        👑
+                    </span>
+
+                    Al-Qayyūm
+
+                </div>
+
+
+                <div
+                    class="gate"
+                    id="gate5">
+
+                    <span class="gate-icon">
+                        🌙
+                    </span>
+
+                    Al-Mumīt
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- KEKUATAN -->
+
+        <div class="power-bar">
+
+
+            <div
+                class="power"
+                id="power1">
+
+                💪 Kekuatan
+
+            </div>
+
+
+            <div
+                class="power"
+                id="power2">
+
+                🌱 Kehidupan
+
+            </div>
+
+
+            <div
+                class="power"
+                id="power3">
+
+                ⚔️ Kebangkitan
+
+            </div>
+
+
+            <div
+                class="power"
+                id="power4">
+
+                👑 Keteguhan
+
+            </div>
+
+
+            <div
+                class="power"
+                id="power5">
+
+                🌙 Kesadaran
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ARENA -->
+
+        <div
+            class="arena"
+            id="arena">
+
+
+            <div class="stars"></div>
+
+
+            <div class="moon">
+                🌙
+            </div>
+
+
+            <div class="cloud cloud1">
+                ☁️
+            </div>
+
+
+            <div class="cloud cloud2">
+                ☁️
+            </div>
+
+
+            <div
+                class="battle-text"
+                id="battleText">
+
+                🥷 Bersiap menghadapi tantangan!
+
+            </div>
+
+
+            <div
+                class="player"
+                id="player">
+
+                🥷
+
+            </div>
+
+
+            <div
+                class="enemy"
+                id="enemy">
+
+                👹
+
+            </div>
+
+
+            <div class="ground"></div>
+
+
+        </div>
+
+
+        <!-- PERTANYAAN -->
+
+        <div class="question-box">
+
+
+            <div
+                class="question-number"
+                id="questionNumber">
+
+                Tantangan Ninja #1
+
+            </div>
+
+
+            <div
+                class="question"
+                id="questionText">
+            </div>
+
+
+            <div
+                class="answers"
+                id="answers">
+            </div>
+
+
+            <div
+                class="feedback"
+                id="feedback">
+            </div>
+
+
+            <div class="next-wrap">
+
+                <button
+                    class="next-button"
+                    id="nextButton"
+                    onclick="lanjut()">
+
+                    ⚔️ LANJUTKAN
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     BOSS
+========================================================= -->
+
+<div
+    class="boss-screen"
+    id="bossScreen">
+
+
+    <div class="boss-box">
+
+
+        <div class="boss">
+            👹
+        </div>
+
+
+        <div class="boss-title">
+            👹 BOSS AKHIR MENUNGGU!
+        </div>
+
+
+        <p>
+
+            Hebat!
+
+            <br>
+
+            Kamu telah melewati
+            lima wilayah Asmaul Husna.
+
+        </p>
+
+
+        <p>
+
+            Semua kekuatan telah kamu kumpulkan.
+
+            <br>
+
+            Saatnya melihat hasil perjalananmu!
+
+        </p>
+
+
+        <button
+            class="start-button"
+            onclick="tampilkanHasil()">
+
+            🏆 LIHAT HASIL
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     HASIL
+========================================================= -->
+
+<section
+    id="resultScreen"
+    class="screen">
+
+
+    <div class="result-box">
+
+
+        <div class="trophy">
+            🏆
+        </div>
+
+
+        <h1>
+            PETUALANGAN SELESAI!
+        </h1>
+
+
+        <div
+            class="final-score"
+            id="finalScore">
+
+            0 POIN
+
+        </div>
+
+
+        <div
+            class="rank"
+            id="rank">
+        </div>
+
+
+        <div
+            class="result-message"
+            id="resultMessage">
+        </div>
+
+
+        <button
+            class="restart-button"
+            onclick="mulaiGame()">
+
+            🔄 MAIN LAGI
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+
+/* =========================================================
+   DATA 30 SOAL
+========================================================= */
+
+const soal = [
+
+
+/* =========================================================
+   AL-QAWIYYU
+========================================================= */
+
+{
+    wilayah:1,
+
+    tanya:
+    "Apa arti Asmaul Husna Al-Qawiyyu?",
+
+    pilihan:[
+        "Allah Maha Menghidupkan",
+        "Allah Maha Kuat",
+        "Allah Maha Mematikan",
+        "Allah Maha Membangkitkan"
+    ],
+
+    benar:1,
+
+    penjelasan:
+    "Al-Qawiyyu berarti Allah Maha Kuat. Kekuatan Allah sempurna dan tidak terbatas."
+},
+
+
+{
+    wilayah:1,
+
+    tanya:
+    "Kekuatan Allah Swt. berbeda dengan kekuatan manusia karena ....",
+
+    pilihan:[
+        "Kekuatan manusia tidak terbatas",
+        "Kekuatan Allah sempurna dan tidak terbatas",
+        "Manusia lebih kuat daripada Allah",
+        "Kekuatan Allah membutuhkan bantuan"
+    ],
+
+    benar:1,
+
+    penjelasan:
+    "Allah memiliki kekuatan yang sempurna, sedangkan manusia memiliki keterbatasan."
+},
+
+
+{
+    wilayah:1,
+
+    tanya:
+    "Rani mengalami kesulitan mengerjakan tugas. Sikap yang tepat sesuai pemahaman Al-Qawiyyu adalah ....",
+
+    pilihan:[
+        "Langsung menyerah",
+        "Berusaha dengan sungguh-sungguh dan berdoa",
+        "Menyalahkan teman",
+        "Tidak mau mencoba"
+    ],
+
+    benar:1,
+
+    penjelasan:
+    "Memahami Allah Maha Kuat mendorong kita untuk berusaha dengan sungguh-sungguh dan memohon pertolongan-Nya."
+},
+
+
+{
+    wilayah:1,
+
+    tanya:
+    "Ketika mendapat masalah, seorang muslim sebaiknya yakin bahwa ....",
+
+    pilihan:[
+        "Allah tidak mengetahui masalahnya",
+        "Allah memiliki kekuatan yang sempurna",
+        "Manusia selalu dapat menyelesaikan semuanya sendiri",
+        "Masalah tidak perlu dihadapi"
+    ],
+
+    benar:1,
+
+    penjelasan:
+    "Allah Maha Kuat dan selalu mengetahui keadaan hamba-Nya."
+},
+
+
+{
+    wilayah:1,
+
+    tanya:
+    "Contoh perilaku yang menunjukkan semangat setelah memahami Al-Qawiyyu adalah ....",
+
+    pilihan:[
+        "Mudah menyerah",
+        "Berani berusaha dan tidak mudah putus asa",
+        "Takut mencoba",
+        "Selalu menyalahkan keadaan"
+    ],
+
+    benar:1,
+
+    penjelasan:
+    "Kita dapat meneladani makna Al-Qawiyyu dengan menjadi pribadi yang kuat dalam menghadapi kesulitan."
+},
+
+
+{
+    wilayah:1,
+
+    tanya:
+    "Jika temanmu gagal dalam sebuah perlombaan, nasihat yang baik adalah ....",
+
+    pilihan:[
+        "Kamu memang tidak mampu",
+        "Jangan pernah mencoba lagi",
+        "Tetap semangat, berlatih, dan berdoa",
+        "Salahkan teman satu tim"
+    ],
+
+    benar:2,
+
+    penjelasan:
+    "Semangat berusaha dan tidak mudah menyerah merupakan sikap positif yang dapat kita biasakan."
+},
+
+
+
+/* =========================================================
+   AL-MUHYI
+========================================================= */
+
+{
+    wilayah:2,
+
+    tanya:
+    "Apa arti Al-Muhyi?",
+
+    pilihan:[
+        "Maha Menghidupkan",
+        "Maha Kuat",
+        "Maha Mematikan",
+        "Maha Membangkitkan"
+    ],
+
+    benar:0,
+
+    penjelasan:
+    "Al-Muhyi berarti Allah Maha Menghidupkan."
+},
+
+
+{
+    wilayah:2,
+
+    tanya:
+    "Siapakah yang memberikan kehidupan kepada manusia, hewan, dan tumbuhan?",
+
+    pilihan:[
+        "Manusia",
+        "Alam",
+        "Allah Swt.",
+        "Hewan"
+    ],
+
+    benar:2,
+
+    penjelasan:
+    "Allah Swt. adalah Al-Muhyi, yaitu Zat yang Maha Menghidupkan."
+},
+
+
+{
+    wilayah:2,
+
+    tanya:
+    "Tumbuhan yang tumbuh dari tanah merupakan salah satu tanda ....",
+
+    pilihan:[
+        "Kekuatan manusia",
+        "Kekuasaan Allah dalam menghidupkan",
+        "Kehebatan benda",
+        "Kemampuan hewan"
+    ],
+
+    benar:1,
+
+    penjelasan:
+    "Tumbuhnya tanaman merupakan salah satu tanda kekuasaan Allah dalam memberikan kehidupan."
+},
+
+
+{
+    wilayah:2,
+
+    tanya:
+    "Sikap yang tepat setelah memahami Allah sebagai Al-Muhyi adalah ....",
+
+    pilihan:[
+        "Merusak semua tanaman",
+        "Tidak peduli terhadap makhluk hidup",
+        "Menjaga dan menyayangi makhluk hidup",
+        "Menyakiti hewan"
+    ],
+
+    benar:2,
+
+    penjelasan:
+    "Karena kehidupan berasal dari Allah, kita harus menghargai dan menjaga makhluk hidup."
+},
+
+
+{
+    wilayah:2,
+
+    tanya:
+    "Beni melihat tanaman sekolah mulai layu. Apa yang sebaiknya dilakukan?",
+
+    pilihan:[
+        "Membiarkannya",
+        "Mencabutnya",
+        "Menyiram dan merawatnya",
+        "Menginjaknya"
+    ],
+
+    benar:2,
+
+    penjelasan:
+    "Merawat tanaman merupakan bentuk kepedulian terhadap makhluk hidup."
+},
+
+
+{
+    wilayah:2,
+
+    tanya:
+    "Contoh bersyukur atas kehidupan yang Allah berikan adalah ....",
+
+    pilihan:[
+        "Menggunakan tubuh untuk kebaikan",
+        "Menyia-nyiakan waktu",
+        "Merusak lingkungan",
+        "Tidak peduli kepada orang lain"
+    ],
+
+    benar:0,
+
+    penjelasan:
+    "Salah satu bentuk syukur adalah menggunakan nikmat kehidupan untuk melakukan kebaikan."
+},
+
+
+
+/* =========================================================
+   AL-BA'ITS
+========================================================= */
+
+{
+    wilayah:3,
+
+    tanya:
+    "Apa arti Al-Bā'its?",
+
+    pilihan:[
+        "Maha Mematikan",
+        "Maha Membangkitkan",
+        "Maha Menghidupkan",
+        "Maha Kuat"
+    ],
+
+    benar:1,
+
+    penjelasan:
+    "Al-Bā'its berarti Allah Maha Membangkitkan."
+},
+
+
+{
+    wilayah:3,
+
+    tanya:
+    "Salah satu makna Al-Bā'its berkaitan dengan kekuasaan Allah untuk ....",
+
+    pilihan:[
+        "Membangkitkan manusia setelah kematian",
+        "Membutuhkan bantuan manusia",
+        "Menjadi seperti makhluk",
+        "Kehilangan kekuasaan"
+    ],
+
+    benar:0,
+
+    penjelasan:
+    "Allah berkuasa membangkitkan manusia setelah kematian pada hari kebangkitan."
+},
+
+
+{
+    wilayah:3,
+
+    tanya:
+    "Keimanan kepada Al-Bā'its mengingatkan kita bahwa kehidupan dunia ....",
+
+    pilihan:[
+        "Tidak memiliki tanggung jawab",
+        "Akan dipertanggungjawabkan",
+        "Tidak perlu diisi kebaikan",
+        "Tidak ada aturan"
+    ],
+
+    benar:1,
+
+    penjelasan:
+    "Keimanan kepada hari kebangkitan membuat kita sadar bahwa perbuatan akan dipertanggungjawabkan."
+},
+
+
+{
+    wilayah:3,
+
+    tanya:
+    "Jika mengetahui bahwa manusia akan dibangkitkan, sikap yang tepat adalah ....",
+
+    pilihan:[
+        "Bebas melakukan apa saja",
+        "Berusaha berbuat baik",
+        "Tidak perlu beribadah",
+        "Meremehkan perbuatan"
+    ],
+
+    benar:1,
+
+    penjelasan:
+    "Keyakinan terhadap hari kebangkitan mendorong kita memperbanyak amal kebaikan."
+},
+
+
+{
+    wilayah:3,
+
+    tanya:
+    "Mengapa kita harus berhati-hati dalam berbuat?",
+
+    pilihan:[
+        "Karena semua perbuatan tidak penting",
+        "Karena setiap perbuatan akan dipertanggungjawabkan",
+        "Karena takut kepada manusia saja",
+        "Karena ingin dipuji"
+    ],
+
+    benar:1,
+
+    penjelasan:
+    "Setiap perbuatan manusia akan mendapatkan pertanggungjawaban di hadapan Allah."
+},
+
+
+{
+    wilayah:3,
+
+    tanya:
+    "Contoh sikap yang sesuai dengan keyakinan terhadap Al-Bā'its adalah ....",
+
+    pilihan:[
+        "Rajin berbuat baik meskipun tidak dipuji",
+        "Berbuat baik hanya jika dilihat orang",
+        "Suka menipu",
+        "Mengabaikan kewajiban"
+    ],
+
+    benar:0,
+
+    penjelasan:
+    "Orang yang yakin akan kebangkitan berusaha melakukan kebaikan dengan ikhlas."
+},
+
+
+
+/* =========================================================
+   AL-QAYYUM
+========================================================= */
+
+{
+    wilayah:4,
+
+    tanya:
+    "Apa arti Al-Qayyūm?",
+
+    pilihan:[
+        "Maha Berdiri Sendiri dan menegakkan kehidupan makhluk",
+        "Maha Mematikan",
+        "Maha Menghidupkan saja",
+        "Maha Membangkitkan saja"
+    ],
+
+    benar:0,
+
+    penjelasan:
+    "Al-Qayyūm menunjukkan bahwa Allah berdiri sendiri, tidak membutuhkan makhluk, dan menegakkan kehidupan seluruh makhluk."
+},
+
+
+{
+    wilayah:4,
+
+    tanya:
+    "Allah tidak membutuhkan pertolongan makhluk karena Allah bersifat ....",
+
+    pilihan:[
+        "Al-Muhyi",
+        "Al-Qayyūm",
+        "Al-Bā'its",
+        "Al-Mumīt"
+    ],
+
+    benar:1,
+
+    penjelasan:
+    "Al-Qayyūm berarti Allah berdiri sendiri dan tidak membutuhkan makhluk."
+},
+
+
+{
+    wilayah:4,
+
+    tanya:
+    "Manusia membutuhkan makanan, minuman, dan udara. Hal ini menunjukkan bahwa manusia ....",
+
+    pilihan:[
+        "Tidak memiliki kebutuhan",
+        "Memiliki keterbatasan",
+        "Maha sempurna",
+        "Tidak membutuhkan Allah"
+    ],
+
+    benar:1,
+
+    penjelasan:
+    "Manusia adalah makhluk yang memiliki banyak kebutuhan dan keterbatasan."
+},
+
+
+{
+    wilayah:4,
+
+    tanya:
+    "Sikap yang tepat setelah memahami Al-Qayyūm adalah ....",
+
+    pilihan:[
+        "Sombong karena merasa kuat",
+        "Menyadari bahwa kita membutuhkan Allah",
+        "Merasa tidak membutuhkan siapa pun",
+        "Tidak mau berdoa"
+    ],
+
+    benar:1,
+
+    penjelasan:
+    "Manusia memiliki keterbatasan sehingga selalu membutuhkan pertolongan dan pemeliharaan Allah."
+},
+
+
+{
+    wilayah:4,
+
+    tanya:
+    "Saat berhasil memperoleh prestasi, sikap yang tepat adalah ....",
+
+    pilihan:[
+        "Sombong",
+        "Merendahkan teman",
+        "Bersyukur kepada Allah",
+        "Menganggap diri paling hebat"
+    ],
+
+    benar:2,
+
+    penjelasan:
+    "Prestasi merupakan nikmat Allah. Kita harus bersyukur dan tetap rendah hati."
+},
+
+
+{
+    wilayah:4,
+
+    tanya:
+    "Mengapa manusia tidak boleh sombong?",
+
+    pilihan:[
+        "Karena manusia memiliki keterbatasan",
+        "Karena manusia tidak boleh belajar",
+        "Karena manusia tidak boleh berhasil",
+        "Karena manusia tidak memiliki kemampuan"
+    ],
+
+    benar:0,
+
+    penjelasan:
+    "Manusia memiliki banyak keterbatasan dan selalu membutuhkan pertolongan Allah."
+},
+
+
+
+/* =========================================================
+   AL-MUMIT
+========================================================= */
+
+{
+    wilayah:5,
+
+    tanya:
+    "Apa arti Al-Mumīt?",
+
+    pilihan:[
+        "Maha Menghidupkan",
+        "Maha Kuat",
+        "Maha Mematikan",
+        "Maha Membangkitkan"
+    ],
+
+    benar:2,
+
+    penjelasan:
+    "Al-Mumīt berarti Allah Maha Mematikan. Kehidupan dan kematian berada dalam ketentuan Allah."
+},
+
+
+{
+    wilayah:5,
+
+    tanya:
+    "Allah Swt. menentukan kehidupan dan kematian makhluk sesuai dengan ....",
+
+    pilihan:[
+        "Kehendak dan ketentuan-Nya",
+        "Keinginan manusia",
+        "Keinginan hewan",
+        "Keinginan tumbuhan"
+    ],
+
+    benar:0,
+
+    penjelasan:
+    "Allah memiliki kekuasaan atas kehidupan dan kematian setiap makhluk sesuai dengan ketentuan-Nya."
+},
+
+
+{
+    wilayah:5,
+
+    tanya:
+    "Memahami Al-Mumīt seharusnya membuat kita ....",
+
+    pilihan:[
+        "Takut berlebihan hingga tidak mau beraktivitas",
+        "Mengingat bahwa hidup adalah amanah",
+        "Tidak peduli terhadap kehidupan",
+        "Boleh berbuat sesuka hati"
+    ],
+
+    benar:1,
+
+    penjelasan:
+    "Kesadaran tentang kematian seharusnya mendorong kita menggunakan kehidupan dengan baik."
+},
+
+
+{
+    wilayah:5,
+
+    tanya:
+    "Karena kehidupan memiliki batas, sebaiknya kita ....",
+
+    pilihan:[
+        "Menyia-nyiakan waktu",
+        "Memperbanyak amal kebaikan",
+        "Bermalas-malasan",
+        "Tidak peduli kepada orang lain"
+    ],
+
+    benar:1,
+
+    penjelasan:
+    "Waktu hidup adalah kesempatan untuk beribadah dan melakukan kebaikan."
+},
+
+
+{
+    wilayah:5,
+
+    tanya:
+    "Sikap yang tepat ketika mengingat kematian adalah ....",
+
+    pilihan:[
+        "Menjadi lebih rajin berbuat baik",
+        "Menjadi putus asa",
+        "Takut kepada semua orang",
+        "Tidak mau belajar"
+    ],
+
+    benar:0,
+
+    penjelasan:
+    "Mengingat kematian seharusnya membuat kita semakin sadar untuk mempersiapkan amal kebaikan."
+},
+
+
+{
+    wilayah:5,
+
+    tanya:
+    "Apa hubungan Al-Mumīt dan Al-Bā'its?",
+
+    pilihan:[
+        "Keduanya tidak berhubungan",
+        "Al-Mumīt berkaitan dengan kematian, sedangkan Al-Bā'its berkaitan dengan kebangkitan",
+        "Keduanya berarti Maha Kuat",
+        "Keduanya berarti Maha Menghidupkan"
+    ],
+
+    benar:1,
+
+    penjelasan:
+    "Al-Mumīt berarti Maha Mematikan, sedangkan Al-Bā'its berarti Maha Membangkitkan."
+}
+
+];
+
+
+/* =========================================================
+   VARIABEL
+========================================================= */
+
+let nomor = 0;
+
+let skor = 0;
+
+let nyawa = 3;
+
+let sudahMenjawab = false;
+
+
+/* =========================================================
+   AUDIO
+========================================================= */
+
+let audioContext = null;
+
+
+function suara(jenis){
+
+    try{
+
+        if(!audioContext){
+
+            audioContext =
+                new (
+                    window.AudioContext ||
+                    window.webkitAudioContext
+                )();
+
+        }
+
+
+        const osc =
+            audioContext.createOscillator();
+
+        const gain =
+            audioContext.createGain();
+
+
+        osc.connect(gain);
+
+        gain.connect(
+            audioContext.destination
+        );
+
+
+        if(jenis === "benar"){
+
+            osc.frequency.setValueAtTime(
+                500,
+                audioContext.currentTime
+            );
+
+            osc.frequency.exponentialRampToValueAtTime(
+                900,
+                audioContext.currentTime + .2
+            );
+
+        }
+        else{
+
+            osc.frequency.setValueAtTime(
+                240,
+                audioContext.currentTime
+            );
+
+            osc.frequency.exponentialRampToValueAtTime(
+                80,
+                audioContext.currentTime + .25
+            );
+
+        }
+
+
+        gain.gain.setValueAtTime(
+            .12,
+            audioContext.currentTime
+        );
+
+
+        gain.gain.exponentialRampToValueAtTime(
+            .001,
+            audioContext.currentTime + .3
+        );
+
+
+        osc.start();
+
+
+        osc.stop(
+            audioContext.currentTime + .3
+        );
+
+    }
+    catch(e){
+
+    }
+
+}
+
+
+/* =========================================================
+   MULAI GAME
+========================================================= */
+
+function mulaiGame(){
+
+    nomor = 0;
+
+    skor = 0;
+
+    nyawa = 3;
+
+    sudahMenjawab = false;
+
+
+    document
+        .getElementById("startScreen")
+        .classList.remove("active");
+
+
+    document
+        .getElementById("resultScreen")
+        .classList.remove("active");
+
+
+    document
+        .getElementById("bossScreen")
+        .classList.remove("show");
+
+
+    document
+        .getElementById("gameScreen")
+        .classList.add("active");
+
+
+    resetGerbang();
+
+    resetPower();
+
+    tampilkanSoal();
+
+}
+
+
+/* =========================================================
+   RESET GERBANG
+========================================================= */
+
+function resetGerbang(){
+
+    for(
+        let i=1;
+        i<=5;
+        i++
+    ){
+
+        const gate =
+            document.getElementById(
+                "gate"+i
+            );
+
+
+        gate.classList.remove(
+            "current"
+        );
+
+        gate.classList.remove(
+            "done"
+        );
+
+    }
+
+
+    document
+        .getElementById("gate1")
+        .classList.add("current");
+
+}
+
+
+/* =========================================================
+   RESET POWER
+========================================================= */
+
+function resetPower(){
+
+    for(
+        let i=1;
+        i<=5;
+        i++
+    ){
+
+        document
+            .getElementById(
+                "power"+i
+            )
+            .classList.remove(
+                "active"
+            );
+
+    }
+
+}
+
+
+/* =========================================================
+   TAMPILKAN SOAL
+========================================================= */
+
+function tampilkanSoal(){
+
+    const data =
+        soal[nomor];
+
+
+    sudahMenjawab = false;
+
+
+    document
+        .getElementById("nomorSoal")
+        .textContent =
+        (nomor+1) +
+        " / 30";
+
+
+    document
+        .getElementById("skor")
+        .textContent =
+        skor;
+
+
+    document
+        .getElementById("nyawa")
+        .textContent =
+        "❤️".repeat(nyawa) +
+        "🖤".repeat(3-nyawa);
+
+
+    document
+        .getElementById("progress")
+        .style.width =
+        (nomor/30*100) +
+        "%";
+
+
+    document
+        .getElementById("questionNumber")
+        .textContent =
+        "🥷 Tantangan Ninja #" +
+        (nomor+1);
+
+
+    document
+        .getElementById("questionText")
+        .textContent =
+        data.tanya;
+
+
+    document
+        .getElementById("battleText")
+        .textContent =
+        "🥷 Pilih jawaban dan gunakan kekuatanmu!";
+
+
+    const answers =
+        document.getElementById(
+            "answers"
+        );
+
+
+    answers.innerHTML = "";
+
+
+    data.pilihan.forEach(
+        function(
+            jawaban,
+            index
+        ){
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.className =
+                "answer";
+
+
+            button.textContent =
+                String.fromCharCode(
+                    65+index
+                ) +
+                ". " +
+                jawaban;
+
+
+            button.onclick =
+                function(){
+
+                    jawab(
+                        index,
+                        button
+                    );
+
+                };
+
+
+            answers.appendChild(
+                button
+            );
+
+        }
+    );
+
+
+    const feedback =
+        document.getElementById(
+            "feedback"
+        );
+
+
+    feedback.className =
+        "feedback";
+
+
+    feedback.innerHTML =
+        "";
+
+
+    document
+        .getElementById("nextButton")
+        .style.display =
+        "none";
+
+
+    resetArena();
+
+
+    updateGerbang(
+        data.wilayah
+    );
+
+}
+
+
+/* =========================================================
+   RESET ARENA
+========================================================= */
+
+function resetArena(){
+
+    const player =
+        document.getElementById(
+            "player"
+        );
+
+    const enemy =
+        document.getElementById(
+            "enemy"
+        );
+
+
+    player.className =
+        "player";
+
+
+    enemy.className =
+        "enemy";
+
+
+    enemy.textContent =
+        "👹";
+
+}
+
+
+/* =========================================================
+   JAWAB
+========================================================= */
+
+function jawab(
+    index,
+    tombol
+){
+
+    if(sudahMenjawab){
+
+        return;
+
+    }
+
+
+    sudahMenjawab = true;
+
+
+    const data =
+        soal[nomor];
+
+
+    const semua =
+        document.querySelectorAll(
+            ".answer"
+        );
+
+
+    semua.forEach(
+        function(button){
+
+            button.classList.add(
+                "disabled"
+            );
+
+        }
+    );
+
+
+    const player =
+        document.getElementById(
+            "player"
+        );
+
+
+    const enemy =
+        document.getElementById(
+            "enemy"
+        );
+
+
+    const battleText =
+        document.getElementById(
+            "battleText"
+        );
+
+
+    const feedback =
+        document.getElementById(
+            "feedback"
+        );
+
+
+    /* =====================================================
+       BENAR
+    ===================================================== */
+
+    if(
+        index === data.benar
+    ){
+
+        tombol.classList.add(
+            "correct"
+        );
+
+
+        skor += 10;
+
+
+        document
+            .getElementById("skor")
+            .textContent =
+            skor;
+
+
+        suara("benar");
+
+
+        player.classList.add(
+            "attack"
+        );
+
+
+        enemy.classList.add(
+            "defeat"
+        );
+
+
+        battleText.textContent =
+            "⚔️ SERANGAN BERHASIL! 💥";
+
+
+        buatEfekBenar();
+
+
+        feedback.className =
+            "feedback show correct";
+
+
+        feedback.innerHTML =
+
+            "🎉 BENAR! Serangan Ninja berhasil!<br><br>" +
+
+            "⭐ +10 POIN<br><br>" +
+
+            data.penjelasan;
+
+    }
+
+
+    /* =====================================================
+       SALAH
+    ===================================================== */
+
+    else{
+
+        tombol.classList.add(
+            "wrong"
+        );
+
+
+        semua[data.benar]
+            .classList.add(
+                "correct"
+            );
+
+
+        nyawa--;
+
+
+        document
+            .getElementById("nyawa")
+            .textContent =
+            "❤️".repeat(nyawa) +
+            "🖤".repeat(3-nyawa);
+
+
+        suara("salah");
+
+
+        player.classList.add(
+            "hit"
+        );
+
+
+        enemy.classList.add(
+            "attack"
+        );
+
+
+        battleText.textContent =
+            "💥 UPS! MUSUH MENYERANG!";
+
+
+        buatEfekSalah();
+
+
+        feedback.className =
+            "feedback show wrong";
+
+
+        feedback.innerHTML =
+
+            "💥 Jawaban belum tepat.<br><br>" +
+
+            "Jawaban yang benar adalah: <b>" +
+
+            data.pilihan[
+                data.benar
+            ] +
+
+            "</b><br><br>" +
+
+            data.penjelasan;
+
+
+        if(
+            nyawa <= 0
+        ){
+
+            setTimeout(
+                function(){
+
+                    tampilkanHasil();
+
+                },
+                1800
+            );
+
+            return;
+
+        }
+
+    }
+
+
+    if(
+        nomor < 29
+    ){
+
+        document
+            .getElementById(
+                "nextButton"
+            )
+            .style.display =
+            "inline-block";
+
+
+        document
+            .getElementById(
+                "nextButton"
+            )
+            .textContent =
+            "⚔️ LANJUTKAN PETUALANGAN";
+
+    }
+
+    else{
+
+        document
+            .getElementById(
+                "nextButton"
+            )
+            .style.display =
+            "inline-block";
+
+
+        document
+            .getElementById(
+                "nextButton"
+            )
+            .textContent =
+            "🏆 HADAPI BOSS AKHIR";
+
+    }
+
+}
+
+
+/* =========================================================
+   EFEK BENAR
+========================================================= */
+
+function buatEfekBenar(){
+
+    const arena =
+        document.getElementById(
+            "arena"
+        );
+
+
+    const effect =
+        document.createElement(
+            "div"
+        );
+
+
+    effect.className =
+        "effect correct";
+
+
+    effect.textContent =
+        "💥⚔️";
+
+
+    arena.appendChild(
+        effect
+    );
+
+
+    setTimeout(
+        function(){
+
+            effect.remove();
+
+        },
+        850
+    );
+
+}
+
+
+/* =========================================================
+   EFEK SALAH
+========================================================= */
+
+function buatEfekSalah(){
+
+    const arena =
+        document.getElementById(
+            "arena"
+        );
+
+
+    const effect =
+        document.createElement(
+            "div"
+        );
+
+
+    effect.className =
+        "effect wrong";
+
+
+    effect.textContent =
+        "💥😵";
+
+
+    arena.appendChild(
+        effect
+    );
+
+
+    setTimeout(
+        function(){
+
+            effect.remove();
+
+        },
+        850
+    );
+
+}
+
+
+/* =========================================================
+   LANJUT
+========================================================= */
+
+function lanjut(){
+
+    nomor++;
+
+
+    if(
+        nomor >= 30
+    ){
+
+        tampilkanBoss();
+
+        return;
+
+    }
+
+
+    tampilkanSoal();
+
+}
+
+
+/* =========================================================
+   UPDATE GERBANG
+========================================================= */
+
+function updateGerbang(
+    wilayah
+){
+
+    for(
+        let i=1;
+        i<=5;
+        i++
+    ){
+
+        const gate =
+            document.getElementById(
+                "gate"+i
+            );
+
+
+        gate.classList.remove(
+            "current"
+        );
+
+
+        if(
+            i < wilayah
+        ){
+
+            gate.classList.add(
+                "done"
+            );
+
+        }
+
+    }
+
+
+    document
+        .getElementById(
+            "gate"+wilayah
+        )
+        .classList.add(
+            "current"
+        );
+
+
+    for(
+        let i=1;
+        i<=5;
+        i++
+    ){
+
+        if(
+            i <= wilayah
+        ){
+
+            document
+                .getElementById(
+                    "power"+i
+                )
+                .classList.add(
+                    "active"
+                );
+
+        }
+
+    }
+
+}
+
+
+/* =========================================================
+   BOSS
+========================================================= */
+
+function tampilkanBoss(){
+
+    suara("benar");
+
+
+    document
+        .getElementById(
+            "bossScreen"
+        )
+        .classList.add(
+            "show"
+        );
+
+}
+
+
+/* =========================================================
+   HASIL
+========================================================= */
+
+function tampilkanHasil(){
+
+    document
+        .getElementById(
+            "bossScreen"
+        )
+        .classList.remove(
+            "show"
+        );
+
+
+    document
+        .getElementById(
+            "gameScreen"
+        )
+        .classList.remove(
+            "active"
+        );
+
+
+    document
+        .getElementById(
+            "resultScreen"
+        )
+        .classList.add(
+            "active"
+        );
+
+
+    document
+        .getElementById(
+            "finalScore"
+        )
+        .textContent =
+        skor +
+        " POIN";
+
+
+    let rank;
+
+    let message;
+
+
+    if(
+        skor >= 280
+    ){
+
+        rank =
+            "👑 NINJA MASTER ASMAUL HUSNA";
+
+
+        message =
+            "MasyaAllah! Luar biasa! " +
+            "Kamu sangat memahami lima Asmaul Husna. " +
+            "Teruslah menjadi anak yang kuat dalam kebaikan, " +
+            "bersyukur atas kehidupan, rajin beramal, " +
+            "rendah hati, dan selalu mengingat Allah.";
+
+    }
+
+    else if(
+        skor >= 220
+    ){
+
+        rank =
+            "⚔️ NINJA AHLI ASMAUL HUSNA";
+
+
+        message =
+            "Hebat! Kamu sudah memahami banyak " +
+            "materi Asmaul Husna. Terus belajar " +
+            "dan praktikkan dalam kehidupan sehari-hari.";
+
+    }
+
+    else if(
+        skor >= 150
+    ){
+
+        rank =
+            "🥷 NINJA PEMBERANI";
+
+
+        message =
+            "Bagus! Kamu sudah menguasai sebagian besar " +
+            "tantangan. Pelajari kembali arti dan makna " +
+            "Asmaul Husna, lalu coba lagi.";
+
+    }
+
+    else{
+
+        rank =
+            "🌱 NINJA PEMULA";
+
+
+        message =
+            "Jangan menyerah! Ninja hebat selalu belajar " +
+            "dan berlatih. Yuk pelajari kembali lima " +
+            "Asmaul Husna kemudian coba lagi.";
+
+    }
+
+
+    document
+        .getElementById(
+            "rank"
+        )
+        .textContent =
+        rank;
+
+
+    document
+        .getElementById(
+            "resultMessage"
+        )
+        .textContent =
+        message;
+
+}
+
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "1"
+        ){
+
+            pilihKeyboard(0);
+
+        }
+
+
+        if(
+            event.key === "2"
+        ){
+
+            pilihKeyboard(1);
+
+        }
+
+
+        if(
+            event.key === "3"
+        ){
+
+            pilihKeyboard(2);
+
+        }
+
+
+        if(
+            event.key === "4"
+        ){
+
+            pilihKeyboard(3);
+
+        }
+
+    }
+);
+
+
+function pilihKeyboard(
+    index
+){
+
+    if(
+        sudahMenjawab
+    ){
+
+        return;
+
+    }
+
+
+    const buttons =
+        document.querySelectorAll(
+            ".answer"
+        );
+
+
+    if(
+        buttons[index]
+    ){
+
+        buttons[index].click();
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
