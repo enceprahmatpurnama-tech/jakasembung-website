@@ -459,6 +459,24 @@
       if (comment) messageInput.focus();
     }
 
+    function getSignInErrorMessage(error) {
+      const messages = {
+        "auth/operation-not-allowed": "Login Google belum diaktifkan di Firebase Authentication.",
+        "auth/unauthorized-domain": `Domain ${window.location.hostname} belum diizinkan. Tambahkan domain ini di Firebase Authentication → Settings → Authorized domains.`,
+        "auth/popup-blocked": "Popup login diblokir browser. Izinkan popup untuk situs ini lalu coba lagi.",
+        "auth/popup-closed-by-user": "Popup login ditutup sebelum proses selesai. Silakan coba lagi.",
+        "auth/cancelled-popup-request": "Permintaan login lain sedang berlangsung. Tunggu sebentar lalu coba lagi.",
+        "auth/network-request-failed": "Login gagal karena koneksi jaringan. Periksa koneksi internet lalu coba lagi.",
+        "auth/invalid-api-key": "API key Firebase tidak valid. Periksa _data/firebase.json."
+      };
+      const code = error.code || "unknown";
+      if (messages[code]) return messages[code];
+      if (code.startsWith("auth/api-key-not-valid")) {
+        return "API key Firebase tidak valid. Periksa _data/firebase.json.";
+      }
+      return `Login Google gagal (kode: ${code}). Periksa konfigurasi Firebase Authentication dan Authorized domains.`;
+    }
+
     function buildCommentTree() {
       const nodes = comments.map((comment) => ({ ...comment, children: [] }));
       const byId = new Map(nodes.map((comment) => [comment.id, comment]));
@@ -582,7 +600,7 @@
             await signInWithPopup(auth, new GoogleAuthProvider());
           } catch (error) {
             console.error("Gagal masuk dengan Google:", error);
-            statusElement.textContent = "Login Google gagal. Pastikan Google Authentication telah diaktifkan.";
+            statusElement.textContent = getSignInErrorMessage(error);
           } finally {
             signInButton.disabled = false;
           }
