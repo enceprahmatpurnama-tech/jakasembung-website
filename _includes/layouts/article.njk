@@ -481,7 +481,7 @@
       const code = error.code || "unknown";
       const messages = {
         "permission-denied": "Firestore menolak permintaan. Pastikan pengguna sudah login dengan Google dan aturan di firestore.rules sudah diterapkan ke proyek Firebase yang benar.",
-        "failed-precondition": "Firestore belum siap atau indeks belum tersedia. Pastikan database sudah dibuat dan indeks dari firestore.indexes.json sudah diterapkan.",
+        "failed-precondition": "Firestore melaporkan prasyarat yang belum terpenuhi. Pastikan database Cloud Firestore sudah dibuat dan query sudah dikonfigurasi dengan benar.",
         "unauthenticated": "Sesi login berakhir. Keluar lalu masuk kembali dengan Google.",
         "unavailable": "Firestore sementara tidak dapat dijangkau. Periksa koneksi internet lalu coba lagi.",
         "resource-exhausted": "Kuota atau batas penggunaan Firebase telah tercapai. Periksa pemakaian di Firebase Console.",
@@ -568,7 +568,7 @@
         const [
           { initializeApp },
           { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut },
-          { getFirestore, collection, addDoc, onSnapshot, orderBy, query, serverTimestamp, where }
+          { getFirestore, collection, addDoc, onSnapshot, query, serverTimestamp, where }
         ] = await Promise.all([
           import(`${baseUrl}/firebase-app.js`),
           import(`${baseUrl}/firebase-auth.js`),
@@ -579,8 +579,7 @@
         const db = getFirestore(app);
         const commentsQuery = query(
           collection(db, "comments"),
-          where("articleId", "==", configElement.dataset.articleId),
-          orderBy("createdAt", "asc")
+          where("articleId", "==", configElement.dataset.articleId)
         );
         let currentUser = null;
         let comments = [];
@@ -589,7 +588,11 @@
           comments = snapshot.docs.map((document) => ({
             id: document.id,
             ...document.data()
-          }));
+          })).sort((a, b) => {
+            const aTime = a.createdAt?.toMillis() || 0;
+            const bTime = b.createdAt?.toMillis() || 0;
+            return aTime - bTime;
+          });
           renderCommentList(currentUser);
           if (!statusElement.dataset.error) {
             statusElement.textContent = `${comments.length} komentar`;
