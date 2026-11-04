@@ -516,13 +516,36 @@
     }
 
     function getCommentTimestamp(comment) {
-      if (typeof comment.createdAt?.toMillis === "function") {
-        return comment.createdAt.toMillis();
-      }
-      if (comment.createdAt instanceof Date) {
-        return comment.createdAt.getTime();
+      try {
+        if (typeof comment.createdAt?.toMillis === "function") {
+          return comment.createdAt.toMillis();
+        }
+        if (comment.createdAt instanceof Date) {
+          return comment.createdAt.getTime();
+        }
+      } catch (error) {
+        console.warn("Waktu komentar tidak dapat dibaca:", error);
       }
       return 0;
+    }
+
+    function formatCommentDate(createdAt) {
+      try {
+        const date = createdAt && typeof createdAt.toDate === "function"
+          ? createdAt.toDate()
+          : createdAt instanceof Date
+            ? createdAt
+            : null;
+        if (date && Number.isFinite(date.getTime())) {
+          return {
+            dateTime: date.toISOString(),
+            text: date.toLocaleString("id-ID")
+          };
+        }
+      } catch (error) {
+        console.warn("Tanggal komentar tidak dapat ditampilkan:", error);
+      }
+      return { dateTime: "", text: "Waktu tidak tersedia" };
     }
 
     function renderComment(comment, replies, user) {
@@ -534,13 +557,9 @@
       const author = document.createElement("strong");
       author.textContent = comment.authorName || "Pengunjung";
       const date = document.createElement("time");
-      if (comment.createdAt && typeof comment.createdAt.toDate === "function") {
-        const createdAt = comment.createdAt.toDate();
-        date.dateTime = createdAt.toISOString();
-        date.textContent = createdAt.toLocaleString("id-ID");
-      } else {
-        date.textContent = "Baru saja";
-      }
+      const formattedDate = formatCommentDate(comment.createdAt);
+      date.dateTime = formattedDate.dateTime;
+      date.textContent = formattedDate.text;
       header.append(author, date);
 
       const content = document.createElement("p");
@@ -615,7 +634,10 @@
           } catch (error) {
             console.error("Gagal memproses daftar komentar:", error);
             statusElement.dataset.error = "true";
-            statusElement.textContent = "Data komentar tidak dapat ditampilkan. Muat ulang halaman atau hubungi pengelola situs.";
+            const detail = error instanceof Error
+              ? `${error.name}: ${error.message}`
+              : String(error);
+            statusElement.textContent = `Data komentar tidak dapat ditampilkan (${detail}). Muat ulang halaman atau hubungi pengelola situs.`;
           }
         }, (error) => {
           receivedInitialSnapshot = true;
