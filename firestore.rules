@@ -25,8 +25,9 @@ service cloud.firestore {
             'createdAt'
           ])
           && data.articleId is string
+          && data.articleId.size() > 0
           && data.articleId.size() <= 300
-          && data.articleId.matches('^/articles/.+/index\\.html$')
+          && data.articleId.matches('^/articles/.+')
           && data.authorName is string
           && data.authorName.size() > 0
           && data.authorName.size() <= 80
@@ -39,7 +40,8 @@ service cloud.firestore {
             data.parentId == null
             || (
               data.parentId is string
-              && data.parentId.matches('^[A-Za-z0-9]{20}$')
+              && data.parentId.size() > 0
+              && data.parentId.size() <= 150
               && exists(/databases/$(database)/documents/comments/$(data.parentId))
               && get(/databases/$(database)/documents/comments/$(data.parentId)).data.articleId == data.articleId
             )
