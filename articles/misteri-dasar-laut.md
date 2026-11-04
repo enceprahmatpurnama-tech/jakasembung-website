@@ -8,7 +8,7 @@ summary: "menguak misteri dasar laut yang belum banyak diketahui banyak orang"
 permalink: "/articles/misteri-dasar-laut/index.html"
 ---
 
-# Menembus Kegelapan Abadi: Misteri dan Keajaiban yang Tersembunyi di Dasar Laut Terdalam
+## Misteri dan Keajaiban yang Tersembunyi di Dasar Laut Terdalam
 
 Bayangkan sebuah tempat di Bumi di mana cahaya matahari sama sekali tidak pernah menyentuh permukaan air. Sebuah dunia yang diselimuti oleh kegelapan pekat, tekanan air yang sanggup meremukkan baja, dan suhu yang mendekati titik beku. Tempat itu adalah zona hadal—palung-palung laut terdalam yang hingga kini masih menyimpan sejuta rahasia terbesar umat manusia.
 
