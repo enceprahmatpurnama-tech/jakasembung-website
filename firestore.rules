@@ -31,7 +31,6 @@ service cloud.firestore {
           && data.authorName is string
           && data.authorName.size() > 0
           && data.authorName.size() <= 80
-          && data.authorName == request.auth.token.get('name', 'Pengunjung')
           && data.text is string
           && data.text.size() > 0
           && data.text.size() <= 2000
