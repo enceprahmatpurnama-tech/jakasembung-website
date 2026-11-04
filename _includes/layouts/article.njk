@@ -515,6 +515,16 @@
       }
     }
 
+    function getCommentTimestamp(comment) {
+      if (typeof comment.createdAt?.toMillis === "function") {
+        return comment.createdAt.toMillis();
+      }
+      if (comment.createdAt instanceof Date) {
+        return comment.createdAt.getTime();
+      }
+      return 0;
+    }
+
     function renderComment(comment, replies, user) {
       const entry = document.createElement("article");
       entry.className = "comment-entry";
@@ -583,21 +593,33 @@
         );
         let currentUser = null;
         let comments = [];
+        let receivedInitialSnapshot = false;
+        const snapshotTimeout = window.setTimeout(() => {
+          if (!receivedInitialSnapshot) {
+            statusElement.textContent = "Firestore belum mengirim data komentar. Periksa koneksi, database, serta aturan baca Firestore.";
+          }
+        }, 15000);
 
         onSnapshot(commentsQuery, (snapshot) => {
-          comments = snapshot.docs.map((document) => ({
-            id: document.id,
-            ...document.data()
-          })).sort((a, b) => {
-            const aTime = a.createdAt?.toMillis() || 0;
-            const bTime = b.createdAt?.toMillis() || 0;
-            return aTime - bTime;
-          });
-          renderCommentList(currentUser);
-          if (!statusElement.dataset.error) {
-            statusElement.textContent = `${comments.length} komentar`;
+          receivedInitialSnapshot = true;
+          window.clearTimeout(snapshotTimeout);
+          try {
+            comments = snapshot.docs.map((document) => ({
+              id: document.id,
+              ...document.data()
+            })).sort((a, b) => getCommentTimestamp(a) - getCommentTimestamp(b));
+            renderCommentList(currentUser);
+            if (!statusElement.dataset.error) {
+              statusElement.textContent = `${comments.length} komentar`;
+            }
+          } catch (error) {
+            console.error("Gagal memproses daftar komentar:", error);
+            statusElement.dataset.error = "true";
+            statusElement.textContent = "Data komentar tidak dapat ditampilkan. Muat ulang halaman atau hubungi pengelola situs.";
           }
         }, (error) => {
+          receivedInitialSnapshot = true;
+          window.clearTimeout(snapshotTimeout);
           console.error("Gagal memuat komentar publik:", error);
           statusElement.dataset.error = "true";
           statusElement.textContent = `Komentar tidak dapat dimuat. ${getFirestoreErrorMessage(error)}`;
