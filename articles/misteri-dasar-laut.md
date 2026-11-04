@@ -5,7 +5,7 @@ category: "Pengetahuan Umum"
 date: 2026-11-04
 updated: 2026-11-04
 summary: "menguak misteri dasar laut yang belum banyak diketahui banyak orang"
-permalink: "/articles/slug-artikel/index.html"
+permalink: "/articles/misteri-dasar-laut/index.html"
 ---
 
 # Menembus Kegelapan Abadi: Misteri dan Keajaiban yang Tersembunyi di Dasar Laut Terdalam
