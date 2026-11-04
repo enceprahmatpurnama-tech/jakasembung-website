@@ -119,6 +119,63 @@
       border-radius: 8px;
     }
 
+    .comments {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid #e3eaf2;
+    }
+
+    .comments h2 {
+      margin-top: 0;
+      color: #12345a;
+    }
+
+    .comments-intro {
+      color: #65758b;
+    }
+
+    .comment-form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .comment-form label {
+      display: grid;
+      gap: 6px;
+      font-weight: bold;
+    }
+
+    .comment-form input,
+    .comment-form textarea {
+      width: 100%;
+      padding: 11px 12px;
+      border: 1px solid #cbd6e2;
+      border-radius: 6px;
+      color: #263449;
+      font: inherit;
+    }
+
+    .comment-form textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .comment-form button {
+      justify-self: start;
+      padding: 11px 18px;
+      border: 0;
+      border-radius: 6px;
+      background: #1769aa;
+      color: white;
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .comment-form button:hover {
+      background: #12345a;
+    }
+
     .article-navigation {
       display: flex;
       justify-content: space-between;
@@ -199,6 +256,26 @@
       {{ content | safe }}
     </article>
 
+    <section class="comments" aria-labelledby="comments-title">
+      <h2 id="comments-title">Sampaikan Komentar</h2>
+      <p class="comments-intro">Komentar akan dikirim melalui WhatsApp. Email atau nomor WhatsApp Anda boleh dicantumkan agar kami dapat membalas.</p>
+      <form class="comment-form" data-whatsapp="{{ site.whatsapp | escape }}" data-article-title="{{ title | escape }}">
+        <label for="comment-name">
+          Nama
+          <input id="comment-name" name="name" type="text" autocomplete="name" required>
+        </label>
+        <label for="comment-contact">
+          Email atau nomor WhatsApp (opsional)
+          <input id="comment-contact" name="contact" type="text" autocomplete="email">
+        </label>
+        <label for="comment-message">
+          Komentar
+          <textarea id="comment-message" name="message" required></textarea>
+        </label>
+        <button type="submit">Kirim Komentar via WhatsApp</button>
+      </form>
+    </section>
+
     {% set articleLinks = collections.articles | articleNavigation(page.url) %}
     {% if articleLinks.newer or articleLinks.older %}
     <nav class="article-navigation" aria-label="Navigasi artikel">
@@ -221,5 +298,25 @@
   <footer>
     <p>© {{ site.siteName }} — {{ site.tagline }}</p>
   </footer>
+  <script>
+    document.querySelectorAll(".comment-form").forEach((form) => {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const phoneNumber = form.dataset.whatsapp.replace(/\D/g, "");
+        const message = [
+          `Komentar untuk artikel: ${form.dataset.articleTitle}`,
+          `Nama: ${formData.get("name")}`,
+          `Email atau nomor WhatsApp: ${formData.get("contact") || "-"}`,
+          "",
+          "Komentar:",
+          formData.get("message")
+        ].join("\n");
+
+        window.location.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      });
+    });
+  </script>
 </body>
 </html>
