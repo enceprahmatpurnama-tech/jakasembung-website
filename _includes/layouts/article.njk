@@ -491,7 +491,7 @@
       return messages[code] || `Operasi Firestore gagal (kode: ${code}). Periksa Firebase Console dan aturan Firestore.`;
     }
 
-    function buildCommentTree() {
+    function buildCommentTree(comments) {
       const nodes = comments.map((comment) => ({ ...comment, children: [] }));
       const byId = new Map(nodes.map((comment) => [comment.id, comment]));
       const roots = [];
@@ -503,8 +503,8 @@
       return roots;
     }
 
-    function renderCommentList(user) {
-      const roots = buildCommentTree();
+    function renderCommentList(comments, user) {
+      const roots = buildCommentTree(comments);
       commentList.replaceChildren(...roots.map((comment) =>
         renderComment(comment, comment.children, user)
       ));
@@ -627,7 +627,7 @@
               id: document.id,
               ...document.data()
             })).sort((a, b) => getCommentTimestamp(a) - getCommentTimestamp(b));
-            renderCommentList(currentUser);
+            renderCommentList(comments, currentUser);
             if (!statusElement.dataset.error) {
               statusElement.textContent = `${comments.length} komentar`;
             }
@@ -652,7 +652,7 @@
           signInButton.hidden = Boolean(user);
           signOutButton.hidden = !user;
           commentForm.hidden = !user;
-          renderCommentList(user);
+          renderCommentList(comments, user);
         });
 
         signInButton.addEventListener("click", async () => {
