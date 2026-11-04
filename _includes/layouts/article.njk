@@ -477,6 +477,20 @@
       return `Login Google gagal (kode: ${code}). Periksa konfigurasi Firebase Authentication dan Authorized domains.`;
     }
 
+    function getFirestoreErrorMessage(error) {
+      const code = error.code || "unknown";
+      const messages = {
+        "permission-denied": "Firestore menolak permintaan. Pastikan pengguna sudah login dengan Google dan aturan di firestore.rules sudah diterapkan ke proyek Firebase yang benar.",
+        "failed-precondition": "Firestore belum siap atau indeks belum tersedia. Pastikan database sudah dibuat dan indeks dari firestore.indexes.json sudah diterapkan.",
+        "unauthenticated": "Sesi login berakhir. Keluar lalu masuk kembali dengan Google.",
+        "unavailable": "Firestore sementara tidak dapat dijangkau. Periksa koneksi internet lalu coba lagi.",
+        "resource-exhausted": "Kuota atau batas penggunaan Firebase telah tercapai. Periksa pemakaian di Firebase Console.",
+        "not-found": "Database Firestore tidak ditemukan. Buat database Cloud Firestore di proyek Firebase yang dikonfigurasi.",
+        "invalid-argument": "Data komentar tidak sesuai. Muat ulang halaman dan coba kirim komentar yang lebih singkat."
+      };
+      return messages[code] || `Operasi Firestore gagal (kode: ${code}). Periksa Firebase Console dan aturan Firestore.`;
+    }
+
     function buildCommentTree() {
       const nodes = comments.map((comment) => ({ ...comment, children: [] }));
       const byId = new Map(nodes.map((comment) => [comment.id, comment]));
@@ -583,7 +597,7 @@
         }, (error) => {
           console.error("Gagal memuat komentar publik:", error);
           statusElement.dataset.error = "true";
-          statusElement.textContent = "Komentar tidak dapat dimuat. Silakan coba lagi nanti.";
+          statusElement.textContent = `Komentar tidak dapat dimuat. ${getFirestoreErrorMessage(error)}`;
         });
 
         onAuthStateChanged(auth, (user) => {
@@ -638,7 +652,7 @@
             statusElement.textContent = "Komentar berhasil dikirim.";
           } catch (error) {
             console.error("Gagal mengirim komentar publik:", error);
-            statusElement.textContent = "Komentar gagal dikirim. Pastikan Firestore dan aturan akses sudah dikonfigurasi.";
+            statusElement.textContent = `Komentar gagal dikirim. ${getFirestoreErrorMessage(error)}`;
           } finally {
             submitButton.disabled = false;
           }
