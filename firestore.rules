@@ -1,0 +1,50 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /comments/{commentId} {
+      allow read: if true;
+      allow create: if request.auth != null
+        && request.auth.token.firebase.sign_in_provider == 'google.com'
+        && validComment();
+      allow update, delete: if false;
+
+      function validComment() {
+        let data = request.resource.data;
+        return data.keys().hasAll([
+            'articleId',
+            'authorName',
+            'text',
+            'parentId',
+            'createdAt'
+          ])
+          && data.keys().hasOnly([
+            'articleId',
+            'authorName',
+            'text',
+            'parentId',
+            'createdAt'
+          ])
+          && data.articleId is string
+          && data.articleId.size() <= 300
+          && data.articleId.matches('^/articles/.+/index\\.html$')
+          && data.authorName is string
+          && data.authorName.size() > 0
+          && data.authorName.size() <= 80
+          && data.authorName == request.auth.token.get('name', 'Pengunjung')
+          && data.text is string
+          && data.text.size() > 0
+          && data.text.size() <= 2000
+          && data.createdAt == request.time
+          && (
+            data.parentId == null
+            || (
+              data.parentId is string
+              && data.parentId.matches('^[A-Za-z0-9]{20}$')
+              && exists(/databases/$(database)/documents/comments/$(data.parentId))
+              && get(/databases/$(database)/documents/comments/$(data.parentId)).data.articleId == data.articleId
+            )
+          );
+      }
+    }
+  }
+}

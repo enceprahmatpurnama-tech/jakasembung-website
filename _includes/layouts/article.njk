@@ -134,9 +134,103 @@
       color: #65758b;
     }
 
+    .comments-status {
+      padding: 12px 14px;
+      border-radius: 6px;
+      background: #f4f8fc;
+    }
+
+    .comments-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .comments-actions button,
+    .comment-form button,
+    .reply-button,
+    .cancel-reply {
+      padding: 10px 16px;
+      border: 0;
+      border-radius: 6px;
+      background: #1769aa;
+      color: white;
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .comments-actions button:hover,
+    .comment-form button:hover,
+    .reply-button:hover,
+    .cancel-reply:hover {
+      background: #12345a;
+    }
+
+    .comments-actions button:disabled,
+    .comment-form button:disabled {
+      cursor: wait;
+      opacity: 0.65;
+    }
+
+    .comments-actions .sign-out-button,
+    .cancel-reply {
+      background: #65758b;
+    }
+
+    .comment-list,
+    .comment-replies {
+      display: grid;
+      gap: 16px;
+    }
+
+    .comment-entry {
+      padding: 16px;
+      border: 1px solid #e3eaf2;
+      border-radius: 8px;
+      overflow-wrap: anywhere;
+    }
+
+    .comment-entry-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 4px 16px;
+      color: #65758b;
+      font-size: 14px;
+    }
+
+    .comment-entry-header strong {
+      color: #12345a;
+    }
+
+    .comment-entry p {
+      margin: 10px 0;
+      white-space: pre-wrap;
+    }
+
+    .comment-replies {
+      margin: 16px 0 0 18px;
+      padding-left: 16px;
+      border-left: 2px solid #e3eaf2;
+    }
+
+    .comment-form[hidden],
+    .comments-actions button[hidden],
+    .reply-context[hidden] {
+      display: none;
+    }
+
+    .reply-context {
+      margin: 0;
+      color: #65758b;
+    }
+
     .comment-form {
       display: grid;
       gap: 16px;
+      margin-top: 16px;
     }
 
     .comment-form label {
@@ -145,7 +239,6 @@
       font-weight: bold;
     }
 
-    .comment-form input,
     .comment-form textarea {
       width: 100%;
       padding: 11px 12px;
@@ -160,20 +253,14 @@
       resize: vertical;
     }
 
-    .comment-form button {
-      justify-self: start;
-      padding: 11px 18px;
-      border: 0;
-      border-radius: 6px;
-      background: #1769aa;
-      color: white;
-      font: inherit;
-      font-weight: bold;
-      cursor: pointer;
+    .whatsapp-comments {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid #e3eaf2;
     }
 
-    .comment-form button:hover {
-      background: #12345a;
+    .whatsapp-comments h3 {
+      color: #12345a;
     }
 
     .article-navigation {
@@ -257,23 +344,51 @@
     </article>
 
     <section class="comments" aria-labelledby="comments-title">
-      <h2 id="comments-title">Sampaikan Komentar</h2>
-      <p class="comments-intro">Komentar akan dikirim melalui WhatsApp. Email atau nomor WhatsApp Anda boleh dicantumkan agar kami dapat membalas.</p>
-      <form class="comment-form" data-whatsapp="{{ site.whatsapp | escape }}" data-article-title="{{ title | escape }}">
-        <label for="comment-name">
-          Nama
-          <input id="comment-name" name="name" type="text" autocomplete="name" required>
-        </label>
-        <label for="comment-contact">
-          Email atau nomor WhatsApp (opsional)
-          <input id="comment-contact" name="contact" type="text" autocomplete="email">
-        </label>
-        <label for="comment-message">
-          Komentar
-          <textarea id="comment-message" name="message" required></textarea>
-        </label>
-        <button type="submit">Kirim Komentar via WhatsApp</button>
+      <h2 id="comments-title">Komentar Pengunjung</h2>
+      <p class="comments-intro">Baca komentar pengunjung lain dan balas dalam diskusi. Masuk dengan Google untuk menulis atau membalas. Nama profil Google akan terlihat publik; alamat email tidak ditampilkan bersama komentar.</p>
+      <div
+        id="comments-config"
+        data-api-key="{{ firebase.apiKey | escape }}"
+        data-auth-domain="{{ firebase.authDomain | escape }}"
+        data-project-id="{{ firebase.projectId | escape }}"
+        data-app-id="{{ firebase.appId | escape }}"
+        data-article-id="{{ page.url | escape }}"
+      ></div>
+      <p id="comments-status" class="comments-status" role="status" aria-live="polite">Memuat komentar...</p>
+      <div class="comments-actions">
+        <button id="google-sign-in" type="button" hidden>Masuk dengan Google</button>
+        <button id="google-sign-out" class="sign-out-button" type="button" hidden>Keluar</button>
+      </div>
+      <form id="public-comment-form" class="comment-form" hidden>
+        <p id="reply-context" class="reply-context" hidden>
+          Membalas komentar <strong id="reply-author"></strong>
+          <button id="cancel-reply" class="cancel-reply" type="button">Batal</button>
+        </p>
+        <label for="public-comment-message">Komentar</label>
+        <textarea id="public-comment-message" name="message" maxlength="2000" required></textarea>
+        <button id="public-comment-submit" type="submit">Kirim komentar</button>
       </form>
+      <div id="public-comment-list" class="comment-list" aria-live="polite"></div>
+
+      <div class="whatsapp-comments">
+        <h3>Kirim komentar pribadi via WhatsApp</h3>
+        <p class="comments-intro">Jika lebih nyaman menyampaikan komentar secara pribadi, kirim langsung melalui WhatsApp.</p>
+        <form class="whatsapp-comment-form" data-whatsapp="{{ site.whatsapp | escape }}" data-article-title="{{ title | escape }}">
+          <label for="whatsapp-comment-name">
+            Nama
+            <input id="whatsapp-comment-name" name="name" type="text" autocomplete="name" required>
+          </label>
+          <label for="whatsapp-comment-contact">
+            Email atau nomor WhatsApp (opsional)
+            <input id="whatsapp-comment-contact" name="contact" type="text" autocomplete="email">
+          </label>
+          <label for="whatsapp-comment-message">
+            Komentar
+            <textarea id="whatsapp-comment-message" name="message" required></textarea>
+          </label>
+          <button type="submit">Kirim via WhatsApp</button>
+        </form>
+      </div>
     </section>
 
     {% set articleLinks = collections.articles | articleNavigation(page.url) %}
@@ -298,8 +413,8 @@
   <footer>
     <p>© {{ site.siteName }} — {{ site.tagline }}</p>
   </footer>
-  <script>
-    document.querySelectorAll(".comment-form").forEach((form) => {
+  <script type="module">
+    document.querySelectorAll(".whatsapp-comment-form").forEach((form) => {
       form.addEventListener("submit", (event) => {
         event.preventDefault();
 
@@ -317,6 +432,206 @@
         window.location.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
       });
     });
+
+    const configElement = document.querySelector("#comments-config");
+    const statusElement = document.querySelector("#comments-status");
+    const signInButton = document.querySelector("#google-sign-in");
+    const signOutButton = document.querySelector("#google-sign-out");
+    const commentForm = document.querySelector("#public-comment-form");
+    const messageInput = document.querySelector("#public-comment-message");
+    const submitButton = document.querySelector("#public-comment-submit");
+    const commentList = document.querySelector("#public-comment-list");
+    const replyContext = document.querySelector("#reply-context");
+    const replyAuthor = document.querySelector("#reply-author");
+    const cancelReplyButton = document.querySelector("#cancel-reply");
+    const firebaseConfig = {
+      apiKey: configElement.dataset.apiKey,
+      authDomain: configElement.dataset.authDomain,
+      projectId: configElement.dataset.projectId,
+      appId: configElement.dataset.appId
+    };
+    const isConfigured = Object.values(firebaseConfig).every(Boolean);
+
+    function setReplyTarget(comment) {
+      replyContext.hidden = !comment;
+      replyAuthor.textContent = comment ? comment.authorName : "";
+      commentForm.dataset.parentId = comment ? comment.id : "";
+      if (comment) messageInput.focus();
+    }
+
+    function buildCommentTree() {
+      const nodes = comments.map((comment) => ({ ...comment, children: [] }));
+      const byId = new Map(nodes.map((comment) => [comment.id, comment]));
+      const roots = [];
+      for (const comment of nodes) {
+        const parent = comment.parentId ? byId.get(comment.parentId) : null;
+        if (parent) parent.children.push(comment);
+        else roots.push(comment);
+      }
+      return roots;
+    }
+
+    function renderCommentList(user) {
+      const roots = buildCommentTree();
+      commentList.replaceChildren(...roots.map((comment) =>
+        renderComment(comment, comment.children, user)
+      ));
+      if (comments.length === 0) {
+        const emptyMessage = document.createElement("p");
+        emptyMessage.textContent = "Belum ada komentar. Jadilah yang pertama memulai diskusi.";
+        commentList.append(emptyMessage);
+      }
+    }
+
+    function renderComment(comment, replies, user) {
+      const entry = document.createElement("article");
+      entry.className = "comment-entry";
+
+      const header = document.createElement("div");
+      header.className = "comment-entry-header";
+      const author = document.createElement("strong");
+      author.textContent = comment.authorName || "Pengunjung";
+      const date = document.createElement("time");
+      if (comment.createdAt && typeof comment.createdAt.toDate === "function") {
+        const createdAt = comment.createdAt.toDate();
+        date.dateTime = createdAt.toISOString();
+        date.textContent = createdAt.toLocaleString("id-ID");
+      } else {
+        date.textContent = "Baru saja";
+      }
+      header.append(author, date);
+
+      const content = document.createElement("p");
+      content.textContent = comment.text;
+      entry.append(header, content);
+
+      if (user) {
+        const replyButton = document.createElement("button");
+        replyButton.className = "reply-button";
+        replyButton.type = "button";
+        replyButton.textContent = "Balas";
+        replyButton.addEventListener("click", () => setReplyTarget(comment));
+        entry.append(replyButton);
+      }
+
+      if (replies.length > 0) {
+        const replyList = document.createElement("div");
+        replyList.className = "comment-replies";
+        for (const reply of replies) {
+          replyList.append(renderComment(reply, reply.children, user));
+        }
+        entry.append(replyList);
+      }
+
+      return entry;
+    }
+
+    if (!isConfigured) {
+      statusElement.textContent = "Komentar publik belum aktif. Admin perlu mengisi konfigurasi Firebase; komentar via WhatsApp tetap tersedia di bawah.";
+      signInButton.hidden = true;
+    } else {
+      try {
+        const version = "11.10.0";
+        const baseUrl = `https://www.gstatic.com/firebasejs/${version}`;
+        const [
+          { initializeApp },
+          { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut },
+          { getFirestore, collection, addDoc, onSnapshot, orderBy, query, serverTimestamp, where }
+        ] = await Promise.all([
+          import(`${baseUrl}/firebase-app.js`),
+          import(`${baseUrl}/firebase-auth.js`),
+          import(`${baseUrl}/firebase-firestore.js`)
+        ]);
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const commentsQuery = query(
+          collection(db, "comments"),
+          where("articleId", "==", configElement.dataset.articleId),
+          orderBy("createdAt", "asc")
+        );
+        let currentUser = null;
+        let comments = [];
+
+        onSnapshot(commentsQuery, (snapshot) => {
+          comments = snapshot.docs.map((document) => ({
+            id: document.id,
+            ...document.data()
+          }));
+          renderCommentList(currentUser);
+          if (!statusElement.dataset.error) {
+            statusElement.textContent = `${comments.length} komentar`;
+          }
+        }, (error) => {
+          console.error("Gagal memuat komentar publik:", error);
+          statusElement.dataset.error = "true";
+          statusElement.textContent = "Komentar tidak dapat dimuat. Silakan coba lagi nanti.";
+        });
+
+        onAuthStateChanged(auth, (user) => {
+          currentUser = user;
+          signInButton.hidden = Boolean(user);
+          signOutButton.hidden = !user;
+          commentForm.hidden = !user;
+          renderCommentList(user);
+        });
+
+        signInButton.addEventListener("click", async () => {
+          signInButton.disabled = true;
+          try {
+            await signInWithPopup(auth, new GoogleAuthProvider());
+          } catch (error) {
+            console.error("Gagal masuk dengan Google:", error);
+            statusElement.textContent = "Login Google gagal. Pastikan Google Authentication telah diaktifkan.";
+          } finally {
+            signInButton.disabled = false;
+          }
+        });
+
+        signOutButton.addEventListener("click", async () => {
+          try {
+            await signOut(auth);
+            setReplyTarget(null);
+          } catch (error) {
+            console.error("Gagal keluar dari akun Google:", error);
+            statusElement.textContent = "Tidak dapat keluar dari akun. Silakan coba lagi.";
+          }
+        });
+
+        commentForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          if (!currentUser) return;
+
+          const text = messageInput.value.trim();
+          if (!text || text.length > 2000) return;
+
+          submitButton.disabled = true;
+          try {
+            await addDoc(collection(db, "comments"), {
+              articleId: configElement.dataset.articleId,
+              authorName: currentUser.displayName || "Pengunjung",
+              text,
+              parentId: commentForm.dataset.parentId || null,
+              createdAt: serverTimestamp()
+            });
+            messageInput.value = "";
+            setReplyTarget(null);
+            statusElement.dataset.error = "";
+            statusElement.textContent = "Komentar berhasil dikirim.";
+          } catch (error) {
+            console.error("Gagal mengirim komentar publik:", error);
+            statusElement.textContent = "Komentar gagal dikirim. Pastikan Firestore dan aturan akses sudah dikonfigurasi.";
+          } finally {
+            submitButton.disabled = false;
+          }
+        });
+
+        cancelReplyButton.addEventListener("click", () => setReplyTarget(null));
+      } catch (error) {
+        console.error("Gagal menginisialisasi komentar publik:", error);
+        statusElement.textContent = "Layanan komentar tidak dapat diinisialisasi. Komentar via WhatsApp tetap tersedia di bawah.";
+      }
+    }
   </script>
 </body>
 </html>
