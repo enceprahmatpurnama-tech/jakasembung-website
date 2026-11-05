@@ -49,7 +49,7 @@ Sampai sekarang, para ilmuwan masih berusaha menemukan partikel penyusun materi 
 
 ## 3. Energi Gelap: Kekuatan Misterius yang Mempercepat Alam Semesta
 
-<img src="/images/Energi%20Gelap.jpeg" alt="Energi Gelap" width="900" style="display: block; margin: 0 auto;">
+<img src="/images/energi%20gelap.jpeg" alt="Energi Gelap" width="900" style="display: block; margin: 0 auto;">
 
 Jika materi gelap sudah cukup membingungkan, alam semesta ternyata memiliki misteri lain yang disebut energi gelap atau dark energy.
 
