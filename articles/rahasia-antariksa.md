@@ -171,7 +171,7 @@ Dengan demikian, salah satu hal paling mengejutkan tentang alam semesta adalah b
 
 ## 10. Apakah Alam Semesta Memiliki Batas?
 
-<img src="/images/Batas%20alam%20semesta.jpeg" alt="Batas Alam Semesta" width="900" style="display: block; margin: 0 auto;">
+<img src="/images/batas%20alam%20semesta.jpeg" alt="Batas Alam Semesta" width="900" style="display: block; margin: 0 auto;">
 
 Pertanyaan terakhir sekaligus salah satu misteri terbesar adalah apakah alam semesta memiliki batas.
 
