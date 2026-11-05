@@ -38,7 +38,7 @@ Di area ekstrem ini, cacing raksasa, kepiting pucat, dan udang khusus hidup berd
 
 ## Apa Saja yang Belum Kita Ketahui?
 
-<img src="/images/apa%20saja%20yang%20belum%20%kita%20ketahui.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
+<img src="/images/apa%20saja%20yang%20belum%20kita%20ketahui.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
 
 Para ilmuwan memperkirakan bahwa sebagian besar spesies di laut dalam masih belum diberi nama atau bahkan belum pernah dilihat oleh manusia. Setiap kali ekspedisi menyelam lebih dalam, selalu ada spesies baru atau fenomena geologi mengejutkan yang ditemukan.
 
