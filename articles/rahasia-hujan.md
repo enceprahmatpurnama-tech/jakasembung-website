@@ -1,10 +1,10 @@
 ---
 layout: "layouts/article.njk"
-title: "Cara Belajar yang Lebih Efektif"
+title: "Di Balik Indahnya Hujan"
 category: "Pendidikan"
 date: 2026-11-25
 updated: 2026-11-25
-summary: "Panduan dasar untuk membangun kebiasaan belajar yang lebih teratur, fokus, dan efektif."
+summary: "Rahasia di balik hujan yang belum diketahui"
 permalink: "/articles/cara-belajar-efektif/index.html"
 ---
 
