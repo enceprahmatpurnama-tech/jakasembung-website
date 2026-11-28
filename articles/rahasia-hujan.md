@@ -42,9 +42,11 @@ Ketika tetesan hujan menghantam permukaan berpori seperti tanah atau daun, bentu
 Proses ini membantu menyebarkan senyawa aromatik dan partikel mikroskopis dari tanah ke lapisan udara di dekat permukaan, sekaligus menjadi salah satu alasan mengapa udara terasa "berbeda" saat hujan turun.
 
 # Ringkasan Fakta Unik Hujan
-Aspek	Anggapan Umum	Fakta di Balik Hujan
-Bentuk tetesan	Lancip di atas, bulat di bawah
-Bulat untuk ukuran kecil; pipih/berkubah di bawah untuk ukuran besar
-Aroma hujan	Sekadar bau air basah	Hasil interaksi minyak tumbuhan, senyawa geosmin, dan pelepasan aerosol
-Sebaran hujan	Merata dalam satu area luas	Bisa sangat terlokalisasi dengan variasi ukuran tetes dalam jarak dekat
-Hujan bukan sekadar fenomena cuaca, melainkan pertemuan halus antara dinamika fluida, mikrobiologi tanah, dan pergerakan atmosfer. Apakah ada fakta tertentu tentang hujan—seperti pelangi, petir, atau siklus awan—yang ingin Anda bahas lebih dalam?
+1. Aspek	Anggapan Umum	Fakta di Balik Hujan
+2. Bentuk tetesan	Lancip di atas, bulat di bawah
+3. Bulat untuk ukuran kecil; pipih/berkubah di bawah untuk ukuran besar
+4. Aroma hujan	Sekadar bau air basah	Hasil interaksi minyak tumbuhan, senyawa geosmin, dan pelepasan aerosol
+5. Sebaran hujan	Merata dalam satu area luas	Bisa sangat terlokalisasi dengan variasi ukuran tetes dalam jarak dekat
+6. Hujan bukan sekadar fenomena cuaca, melainkan pertemuan halus antara dinamika fluida, mikrobiologi tanah, dan pergerakan atmosfer.
+  
+   Apakah ada fakta tertentu tentang hujan—seperti pelangi, petir, atau siklus awan—yang ingin Anda bahas lebih dalam?
