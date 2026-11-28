@@ -10,7 +10,7 @@ permalink: "/articles/rahasia-hujan/index.html"
 
 # Rahasia Hujan yang Jarang Diketahui: Di Balik Setiap Tetes yang Jatuh ke Bumi
 Hujan sering kita anggap sebagai rutinitas alam yang biasa—sekadar air yang turun dari awan untuk membasahi bumi. Namun, jika kita menengok lebih dekat ke dunia fisika, kimia, dan ekologi di balik setiap tetesnya, hujan menyimpan banyak kejutan yang jarang disadari.
-<img src="/images/Rahasia%20Hujan%201.jpeg" alt="Gambar 1" width="750" style="display: block; margin: 0 auto;">
+<img src="/images/Rahasia%20Hujan%201.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
 
 ## Tetes Hujan Tidak Berbentuk Seperti Air Mata (Teardrop)
 <img src="/images/Rahasia%20Hujan%202.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
