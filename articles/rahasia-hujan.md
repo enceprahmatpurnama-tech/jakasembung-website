@@ -3,7 +3,7 @@ layout: "layouts/article.njk"
 title: "Di Balik Indahnya Hujan"
 category: "Pengetahuan Umum"
 date: 2026-11-25
-updated: 2026-11-25
+updated: 2026-11-28
 summary: "Rahasia di balik hujan yang belum diketahui"
 permalink: "/articles/rahasia-hujan/index.html"
 ---
@@ -43,4 +43,4 @@ Proses ini membantu menyebarkan senyawa aromatik dan partikel mikroskopis dari t
 
 <img src="/images/Rahasia%20Hujan%206.jpeg" alt="Gambar 1" width="900" style="display: block; margin: 0 auto;">
   
-Apakah ada fakta tertentu tentang hujan—seperti pelangi, petir, atau siklus awan—yang ingin Anda bahas lebih dalam?
+Apakah ada fakta tertentu tentang hujan seperti pelangi, petir, atau siklus awan yang ingin Anda bahas lebih dalam?
